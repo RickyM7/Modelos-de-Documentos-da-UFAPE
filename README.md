@@ -4,15 +4,15 @@ Reprodução dos templates oficiais do SIB-UFAPE em LaTeX:
 
 | Pasta | Modelo |
 |---|---|
-| `modelo-monografia-ufape/` | Monografia / TCC (espaçamento 1,5) |
-| `modelo-eso-ufape/` | Relatório de ESO (espaçamento simples) |
+| [`modelo-monografia-ufape/`](/docs-latex/modelo-monografia-ufape/) | Monografia / TCC (espaçamento 1,5) |
+| [`modelo-eso-ufape/`](/docs-latex/modelo-eso-ufape/) | Relatório de ESO (espaçamento simples) |
 
 Cada pasta é independente e tem sua cópia de `ufape.cls` (o arquivo é o mesmo; a opção `monografia` ou `eso` escolhe o modelo).
 
 ## Usar
 
-- Overleaf: https://www.overleaf.com - faça upload do `.zip` da pasta do modelo.
-- Prism (OpenAI): https://prism.openai.com - arraste a pasta ou o `.zip` para importar.
+- [Overleaf](https://www.overleaf.com): faça upload do `.zip` da pasta do modelo.
+- [Prism (OpenAI)](https://prism.openai.com): arraste a pasta ou o `.zip` para importar.
 
 Abra o `main.tex` e aperte compilar. O sumário e as listas de figuras, quadros e tabelas são dinâmicos: atualizam sozinhos a cada compilação. Apague as listas que ficarem vazias no `main.tex`.
 
