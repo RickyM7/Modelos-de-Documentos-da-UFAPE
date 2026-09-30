@@ -1,0 +1,125 @@
+% Modelo de Monografia (TCC) - UFAPE.
+% No Overleaf/Prism, abra o main.tex e compile.
+% Opções: arial (fonte Arial), notas (instruções do Word), frenteeverso (impressão dupla face).
+\documentclass[monografia]{ufape}
+
+% Dados
+\autor{Nome do Aluno}
+\titulo{Título da monografia}
+\subtitulo{subtítulo}
+\curso{xxxxxxxx}
+\nomecurso{colocar o nome do curso} % opcional (se omitido, usa \curso)
+\grau{Bacharelado ou Licenciatura}
+\orientador{Prof. Dr. Xxxxxxxxxxxxxxxxx}
+\cidade{Garanhuns}
+\ano{2026}
+% \dataaprovacao{15/12/2026} % padrão: ____/____/____
+\logocurso{figuras/logo-curso.png} % troque pelo logo do curso ou apague a linha
+
+% Banca (só nomes, sem assinaturas)
+\membrobanca{Titulação. Nome Completo. (Orientador)}{Instituição a que pertence.}
+\membrobanca{Titulação. Nome Completo do Membro da Banca.}{Instituição a que pertence.}
+\membrobanca{Titulação. Nome Completo do Membro da Banca.}{Instituição a que pertence.}
+
+% Parágrafo de exemplo do Word. Apague as chamadas e o comando ao escrever.
+\newcommand{\textopadrao}{%
+  A primeira linha de cada parágrafo terá recuo de 1,25~cm. Texto com fonte
+  Times New Roman ou Arial, justificado, tamanho 12, espaçamento entre
+  linhas de 1,5~cm (exceto para as citações diretas, no texto, com mais de
+  três linhas, devem ser destacadas com recuo padronizado -- a ABNT NBR
+  10520 recomenda que o recuo seja de 4~cm - em relação à margem esquerda,
+  com letra menor que a utilizada no texto, em espaço simples e sem aspas.
+  Para as citações diretas, no texto, com até três linhas, devem estar
+  contidas entre aspas duplas), não colocar espaçamento entre parágrafos.\par}
+
+\begin{document}
+
+% Pré-textuais
+\capa
+\folhaderosto
+\fichacatalografica
+
+\begin{errata} % opcional: apague o ambiente se não houver errata
+  \errataref{SOBRENOME, Prenome do Autor. \textbf{Título de obra}: subtítulo (se
+    houver). Ano de depósito. Número de folhas. Monografia (Graduação). --
+    Universidade Federal do Agreste de Pernambuco, Garanhuns, ano da defesa.}
+  \tabelaerrata{16}{10}{auto-clavado}{autoclavado}
+\end{errata}
+
+\folhadeaprovacao
+
+\begin{dedicatoria} % opcional
+  \input{pre-textuais/dedicatoria}
+\end{dedicatoria}
+
+\begin{agradecimentos} % opcional
+  \input{pre-textuais/agradecimentos}
+\end{agradecimentos}
+
+\begin{epigrafe} % opcional
+  \input{pre-textuais/epigrafe}
+\end{epigrafe}
+
+\begin{resumo}
+  \input{pre-textuais/resumo}
+\end{resumo}
+
+\begin{abstract}
+  \input{pre-textuais/abstract}
+\end{abstract}
+
+\listadefiguras % opcional: apague se não houver figuras
+\listadequadros % opcional: apague se não houver quadros
+\listadetabelas % opcional: apague se não houver tabelas
+
+\listadesiglas{% % opcional
+  \item[ABNT] Associação Brasileira de Normas Técnicas
+  \item[ONU] Organização das Nações Unidas
+  \item[PNCRCL] Programa Nacional de Controle de Resíduos e Contaminantes em Leite
+  \item[UFAPE] Universidade Federal do Agreste de Pernambuco
+}
+
+\listadesimbolos{% % opcional
+  \item[\%] Percentual
+  \item[\#] Hastag
+  \item[@] Arroba
+}
+
+\sumario
+
+% Textuais
+\iniciotexto
+
+\chapter{Introdução}
+\input{textuais/01-introducao}
+
+\chapter{Fundamentação teórica}
+\input{textuais/02-fundamentacao}
+
+\chapter{Metodologia}
+\input{textuais/03-metodologia}
+
+\chapter{Resultados e análise dos dados}
+\input{textuais/04-resultados}
+
+\chapter{Considerações finais}
+\input{textuais/05-consideracoes}
+
+% Pós-textuais
+\begin{referencias}
+  \input{pos-textuais/referencias}
+\end{referencias}
+
+\apendice{A}{Título} % opcional
+\input{pos-textuais/apendices/apendice-a}
+
+\apendice{B}{Título} % opcional
+\input{pos-textuais/apendices/apendice-b}
+
+\anexo{A}{Título} % opcional
+\input{pos-textuais/anexos/anexo-a}
+
+\anexo{B}{Título} % opcional
+\input{pos-textuais/anexos/anexo-b}
+
+\end{document}
