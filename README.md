@@ -7,6 +7,12 @@ Reprodução dos templates oficiais do SIB-UFAPE em LaTeX:
 | [`modelo-monografia-ufape/`](/docs-latex/modelo-monografia-ufape/) | Monografia / TCC (espaçamento 1,5) |
 | [`modelo-eso-ufape/`](/docs-latex/modelo-eso-ufape/) | Relatório de ESO (espaçamento simples) |
 
+## Outros
+
+| Pasta | Descrição |
+|---|---|
+| [`modelo-autorizacao-ufape/`](/docs-latex/modelo-autorizacao-ufape/) | Termo de Autorização para Publicação no RI da UFAPE, com estilo modificado para melhor visualização (preencha o bloco `DADOS` no `main.tex` e compile) |
+
 Cada pasta é independente e tem sua cópia de `ufape.cls` (o arquivo é o mesmo; a opção `monografia` ou `eso` escolhe o modelo).
 
 ## Usar
