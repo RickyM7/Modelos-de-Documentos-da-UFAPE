@@ -165,7 +165,7 @@
 \newcommand{\linhasig}[1]{%
   \stepcounter{idxsig}%
   \ifodd\value{idxsig}%
-    \ifnum\value{idxsig}=1 \gdef\pendleg{Assinatura do autor correspondente}%
+    \ifnum\value{idxsig}=1 \gdef\pendleg{Assinatura do(a) autor(a) correspondente}%
     \else \gdef\pendleg{Assinatura do(a) coautor(a)}\fi
   \else
     \ifnum\value{idxsig}>2 \gap{ass-ass}{16.3}\fi
@@ -176,9 +176,9 @@
   \setcounter{idxsig}{0}%
   \renewcommand*{\do}{\linhasig}%
   \expandafter\docsvlist\expandafter{\FAutores}%
-  \ifnum\value{idxsig}=0 \sozinha{Assinatura do autor correspondente}\fi
+  \ifnum\value{idxsig}=0 \sozinha{Assinatura do(a) autor(a) correspondente}\fi
   \ifodd\value{idxsig}%
-    \ifnum\value{idxsig}=1 \sozinha{Assinatura do autor correspondente}%
+    \ifnum\value{idxsig}=1 \sozinha{Assinatura do(a) autor(a) correspondente}%
     \else \gap{ass-ass}{16.3}\sozinha{Assinatura do(a) coautor(a)}\fi
   \fi}
 
