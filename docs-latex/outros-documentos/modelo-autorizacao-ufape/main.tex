@@ -1,0 +1,259 @@
+% Termo de Autorização para Publicação Eletrônica no RI da UFAPE
+% X marca a caixa; {} deixa em branco.
+\documentclass[10pt,a4paper]{article}
+
+% BLOCO DE DADOS: ALTERE APENAS OS CAMPOS ABAIXO
+% Material bibliográfico, X marca a caixa
+% Monografia
+\newcommand{\FMonografia}{}
+% Artigo científico
+\newcommand{\FArtigo}{}
+% ESO
+\newcommand{\FESO}{}
+% Dissertação
+\newcommand{\FDissertacao}{}
+
+% Autor e documento
+% Nome completo, ex.: Maria da Silva
+\newcommand{\FAutor}{}
+% CPF, ex.: 000.000.000-00
+\newcommand{\FCPF}{}
+% DDD, vai no parênteses, ex.: 87
+\newcommand{\FDDD}{}
+% Telefone sem o DDD, ex.: 9 9999-9999
+\newcommand{\FFone}{}
+% E-mails, ex.: nome@exemplo.com
+\newcommand{\FEmails}{}
+% Curso, ex.: Ciência da Computação
+\newcommand{\FCurso}{}
+% Título inteiro, ex.: Estudo sobre revisões sistemáticas
+\newcommand{\FTitulo}{}
+% Orientador, ex.: Prof. Nome Exemplo
+\newcommand{\FOrientador}{}
+% Número de folhas, ex.: 120
+\newcommand{\FFolhas}{}
+% Anexo, X marca sim
+\newcommand{\FAnexoSim}{}
+% Anexo, X marca não
+\newcommand{\FAnexoNao}{}
+% Data de defesa, ex.: 10 de Janeiro de 2026
+\newcommand{\FData}{}
+
+% Acesso ao documento
+% Liberação total, X marca
+\newcommand{\FLibTotal}{}
+% Liberação parcial, X marca
+\newcommand{\FLibParcial}{}
+% Permissão sumário, X marca
+\newcommand{\FPermSumario}{}
+% Permissão capítulos, X marca
+\newcommand{\FPermCapitulos}{}
+% Quais capítulos, ex.: 2 e 3
+\newcommand{\FQuaisA}{}
+% Permissão outros itens, X marca
+\newcommand{\FPermOutros}{}
+% Quais outros, ex.: apêndices
+\newcommand{\FQuaisB}{}
+% Justificar as restrições, ex.: patente em andamento
+\newcommand{\FJust}{}
+% Patente, X marca sim
+\newcommand{\FPatSim}{}
+% Patente, X marca não
+\newcommand{\FPatNao}{}
+% Se sim, qual patente, ex.: BR 0000000-0
+\newcommand{\FPatQual}{}
+
+% Local e data, vão na última linha
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{Garanhuns}
+% Dia, em número, ex.: 10
+\newcommand{\FDia}{}
+% Mês, por extenso, ex.: Janeiro
+\newcommand{\FMes}{}
+% Ano, em número, ex.: 2026
+\newcommand{\FAno}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULthickness}{0.4pt}
+\usepackage[a4paper,left=1.27cm,right=1.34cm,top=1.60cm,bottom=0.30cm]{geometry}
+\usepackage[bookmarksnumbered=true,psdextra,pdfencoding=auto]{hyperref}
+\hypersetup{hidelinks}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\newcommand{\gap}[2]{\vspace{#2mm}}
+
+\newcommand{\Uaux}[2]{\uline{#1\hspace*{#2}}}
+\newcommand{\U}[2]{\expandafter\Uaux\expandafter{#2}{#1}}
+
+\newcommand{\UFaux}[1]{\uline{#1\hspace*{\fill}}}
+\newcommand{\UF}[1]{\expandafter\UFaux\expandafter{#1}}
+
+\newcommand{\Uauto}[1]{%
+  \ifdefempty{#1}{\U{1.8cm}{}}{\uline{#1}}}
+
+\newcommand{\caixa}[1]{%
+  \raisebox{0.9pt}{$\vcenter{\hbox{%
+    \setlength{\fboxsep}{1pt}\setlength{\fboxrule}{0.6pt}%
+    \ifdefempty{#1}%
+      {\fcolorbox{black}{white}{\phantom{{\large$\pmb{\checkmark}$}}}}%
+      {\fcolorbox{black}{black!55}{\color{white}{\large$\pmb{\checkmark}$}}}%
+  }}$}}
+
+\newcommand{\flinha}[2]{\noindent#1\hspace{0.15cm}\UF{#2}\par}
+
+\newsavebox{\boxC}
+\newcommand{\dupla}[4]{%
+  \sbox{\boxC}{#1\hspace{0.15cm}#2}%
+  \ifdim\wd\boxC>0.48\textwidth
+    \noindent#1\hspace{0.15cm}\UF{#2}\par\gap{dupla}{1.3}%
+    \noindent#3\hspace{0.15cm}\UF{#4}\par
+  \else
+    \noindent\parbox[t]{0.485\textwidth}{#1\hspace{0.15cm}\UF{#2}}\hfill\parbox[t]{0.485\textwidth}{#3\hspace{0.15cm}\UF{#4}}\par
+  \fi}
+
+\newcommand{\obsitem}[1]{\parshape=2 0pt 18.39cm 0.39cm 18.00cm\noindent#1\par}
+
+\begin{document}
+
+{\setlength{\unitlength}{1mm}%
+\begin{picture}(0,0)
+  \put(0,-10.6){\includegraphics[height=2.20cm]{figuras/brasao-ufape.pdf}}%
+  \put(161.3,-10.6){\includegraphics[height=2.20cm]{figuras/sib-ufape.pdf}}%
+\end{picture}}%
+\fontsize{10}{10.9}\selectfont
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{14.2cm}\centering\bfseries\fontsize{11}{18.1}\selectfont
+    Ministério da Educação\\
+    Universidade Federal do Agreste de Pernambuco\\
+    Sistema Integrado de Bibliotecas
+  \end{minipage}%
+}
+
+\gap{cab-titulo}{3.5}
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{\textwidth}\centering\bfseries\fontsize{12}{15}\selectfont
+    Termo de Autorização para Publicação Eletrônica no Repositório Institucional da UFAPE
+  \end{minipage}%
+}
+
+\gap{titulo-1}{4.5}
+
+\pdfbookmark[1]{1 - Identificacao do Material Bibliografico}{sec1}
+\noindent\textbf{1- Identificação do Material Bibliográfico:}
+\caixa{\FMonografia}\ Monografia \caixa{\FArtigo}\ Artigo Científico \caixa{\FESO}\ ESO \caixa{\FDissertacao}\ Dissertação
+
+\gap{1-2}{2.5}
+
+\pdfbookmark[1]{2 - Identificacao do Autor(a) e Documento}{sec2}
+\noindent\textbf{2- Identificação do Autor(a) e Documento:}
+
+\gap{2-autor}{1.3}
+\dupla{Autor(a):}{\FAutor}{CPF:}{\FCPF}
+
+\gap{autor-fone}{1.3}
+\dupla{Telefones: (\FDDD)}{\FFone}{E-mails:}{\FEmails}
+
+\gap{fone-curso}{1.3}
+\dupla{Curso:}{\FCurso}{Orientador(a):}{\FOrientador}
+
+\gap{curso-titulo}{1.3}
+\flinha{Título do Trabalho:}{\FTitulo}
+
+\gap{titulo-num}{1.3}
+\noindent Número de folhas:\hspace{0.15cm}\Uauto{\FFolhas}\hspace{0.46cm}Possui Anexo? \caixa{\FAnexoSim}\ sim \caixa{\FAnexoNao}\ não\hspace{0.26cm}Data de Defesa:\hspace{0.15cm}\UF{\FData}\par
+
+\gap{num-3}{3.0}
+
+\pdfbookmark[1]{3 - Informacoes de Acesso ao Documento}{sec3}
+\noindent\textbf{3- Informações de Acesso ao Documento:}
+
+\gap{3-lib}{1.5}
+\noindent Liberação para publicação:\hspace{0.88cm}%
+\textbf{\caixa{\FLibTotal}\ Total\hspace{0.18cm}\caixa{\FLibParcial}\ Parcial\ - }%
+\textcolor{red}{\textbf{Observações: A, B e C}}
+
+\gap{lib-em1}{1.0}
+
+\noindent
+  Em caso de publicação parcial, assinalar as permissões: \caixa{\FPermSumario}\ sumário;\par
+
+\gap{em1-em2}{0.8}
+\flinha{\caixa{\FPermCapitulos}\ capítulos, informe quais:}{\FQuaisA}
+
+\gap{em2-em3}{0.8}
+\flinha{\caixa{\FPermOutros}\ outros itens, informe quais:}{\FQuaisB}
+
+\gap{em3-just}{0.8}
+\flinha{Em caso de publicação parcial, justificar as restrições:}{\FJust}
+
+\gap{just-pat1}{0.8}
+\noindent Este trabalho ocasionará registro de patente? \caixa{\FPatSim}\ sim \caixa{\FPatNao}\ não.\par
+
+\gap{pat1-pat2}{0.5}
+\flinha{Se sim, qual?}{\FPatQual}
+
+\gap{pat2-obs}{0.6}
+
+\pdfbookmark[1]{Observacoes A, B e C}{secObs}
+\noindent\textbf{Observações}
+\gap{obs-a}{-1.6}
+\begin{justify}
+\obsitem{a) É imprescindível o envio do arquivo em formato digital do trabalho completo, mesmo em se tratando de disponibilização parcial. Os formatos aceitos são: texto (PDF); som (WAV, MPEG, AIFF ou SND), vídeo (MPEG, AVI ou QT).}
+\obsitem{b) A restrição da publicação parcial poderá ser mantida por até 12 meses a partir da data de autorização deste termo. O resumo e os metadados ficarão sempre disponibilizados, mas o arquivo do trabalho apenas será disponibilizado após o fim da restrição. A restrição pode ser prorrogada por mais 12 meses com uma nova solicitação à Biblioteca;}
+\obsitem{c) No caso de trabalho com patente, a restrição será total. Significa que o resumo, metadados e arquivo do trabalho serão publicados \textbf{apenas decorrido o período de 24 meses} a partir da data da assinatura deste termo, ou após recebimento de declaração do orientador de que a patente foi registrada.}
+\end{justify}
+
+\gap{obs-4}{0.8}
+
+\pdfbookmark[1]{4 - Licenca de Permissao de Uso}{sec4}
+\noindent\textbf{4- Licença de Permissão de Uso:}
+\gap{4-p1}{-1.6}
+\begin{justify}
+De acordo com a Portaria n.\ 13 de 15 de fevereiro de 2006, da CAPES, e a Lei n.\ 9610/98, e na qualidade de titular dos direitos de autor desta publicação, autorizo a Universidade Federal do Agreste de Pernambuco disponibilizar gratuitamente, esta obra no Repositório Institucional da UFAPE ou em outras plataformas digitais do Sistema Integrado de Bibliotecas da UFAPE, conforme a licença Creative Commons Atribuição 4.0 (\textquotedbl Licença Pública\textquotedbl) - (CC BY) e também ao IBICT, por meio do site bdtd.ibict.br. Não acarretando ressarcimento dos direitos autorais, o texto integral da obra supracitada, conforme permissões assinaladas, para fins de leitura, impressão e/ou \textit{download}, a título de divulgação da produção científica brasileira e declaro para os devidos fins que o trabalho foi corrigido de acordo com as recomendações da banca examinadora e o(a) orientador(a), sendo assim a versão final pode ser entregue e publicada a partir desta data.
+\end{justify}
+
+\gap{4-5}{0.8}
+
+\pdfbookmark[1]{5 - Declaracao de Distribuicao nao-exclusiva}{sec5}
+\noindent\textbf{5- Declaração de Distribuição não-exclusiva:}
+\gap{5-ref}{1.0}
+\begin{justify}
+O referido autor:\\
+a) Declara que o documento entregue é seu trabalho original, e que detém o direito de conceder os direitos contidos nesta licença. Declara também que a entrega do documento não infringe, tanto quanto lhe é possível saber, os direitos de qualquer outra pessoa ou entidade, não acarretando plágio de qualquer outra obra.\\
+b) Se o documento entregue contém material do qual não detém os direitos de autor, declara que obteve autorização do detentor dos direitos de autor para conceder à Universidade Federal do Agreste de Pernambuco os direitos requeridos por esta licença, e que esse material cujos direitos são de terceiros está claramente identificado e reconhecido no texto ou conteúdo do documento entregue.\\
+c) Se o documento entregue é baseado em trabalho financiado ou apoiado por outra instituição que não a Universidade Federal do Agreste de Pernambuco, declara que cumpriu quaisquer obrigações exigidas pelo respectivo contrato ou acordo.
+\end{justify}
+
+\gap{decl-ass}{12.5}
+
+\pdfbookmark[1]{Assinaturas}{secAss}
+\noindent
+\begin{minipage}[t]{6.67cm}
+  \centering
+  \rule{6.67cm}{0.4pt}\\
+  \textbf{\small Assinatura do Autor(a)}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{7.22cm}
+  \centering
+  \rule{7.22cm}{0.4pt}\\
+  \textbf{\small Assinatura do Orientador(a) (para anuência)}
+\end{minipage}
+
+\gap{ass-local}{10.0}
+\noindent\makebox[\textwidth][c]{%
+  \FCidade, \FDia\ de \FMes\ de \FAno.}
+
+\end{document}

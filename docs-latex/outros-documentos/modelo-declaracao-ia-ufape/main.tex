@@ -1,0 +1,282 @@
+% Declaração de Uso de Inteligência Artificial - UFAPE
+% X marca a caixa; {} deixa em branco.
+\documentclass[11pt,a4paper]{article}
+
+% BLOCO DE DADOS: ALTERE APENAS OS CAMPOS ABAIXO
+% Cabeçalho institucional, terceira linha
+% Nome do curso, ex.: Bacharelado em Ciência da Computação
+\newcommand{\FCursoHeader}{Bacharelado em Ciência da Computação}
+
+% Identificação do manuscrito
+% Título do trabalho, ex.: Uso de IA na revisão de textos acadêmicos
+\newcommand{\FTitulo}{}
+% Autores separados por vírgula, sem vírgula no fim; o primeiro é o correspondente
+% Ex.: Maria da Silva, João Souza, Ana Lima
+\newcommand{\FAutores}{}
+
+% Ferramentas e propósitos
+% Ferramentas separadas por vírgula, ex.: ChatGPT, Grammarly, Copilot
+\newcommand{\FFerramentas}{}
+% Revisão de linguagem, X marca
+\newcommand{\FRev}{}
+% Tradução, X marca
+\newcommand{\FTra}{}
+% Geração de texto, X marca
+\newcommand{\FGer}{}
+% Análise de dados, X marca
+\newcommand{\FAna}{}
+% Visualização de dados ou imagens, X marca
+\newcommand{\FVis}{}
+% Sugestões metodológicas, X marca
+\newcommand{\FMet}{}
+% Outros, X marca
+\newcommand{\FOut}{}
+% Detalhe dos outros, ex.: reescrita de código
+\newcommand{\FOutDetalhe}{}
+
+% Local e data, vão na última linha
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{Garanhuns}
+% Dia, em número, ex.: 10
+\newcommand{\FDia}{}
+% Mês, por extenso, ex.: Janeiro
+\newcommand{\FMes}{}
+% Ano, em número, ex.: 2026
+\newcommand{\FAno}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULthickness}{0.4pt}
+\hyphenation{ma-tri-cu-la-do Con-clu-sao}
+\usepackage[a4paper,left=3cm,right=3cm,top=1.6cm,bottom=1.6cm]{geometry}
+\usepackage[bookmarksnumbered=true,psdextra,pdfencoding=auto]{hyperref}
+\hypersetup{hidelinks}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+
+\newcommand{\gap}[2]{\vspace{#2mm}}
+
+\newcommand{\caixa}[1]{%
+  \raisebox{0.9pt}{$\vcenter{\hbox{%
+    \setlength{\fboxsep}{1pt}\setlength{\fboxrule}{0.6pt}%
+    \ifdefempty{#1}%
+      {\fcolorbox{black}{white}{\phantom{{\large$\pmb{\checkmark}$}}}}%
+      {\fcolorbox{black}{black!55}{\color{white}{\large$\pmb{\checkmark}$}}}%
+  }}$}}
+
+\newsavebox{\boxUF}
+
+\newcommand{\UFaux}[1]{\uline{#1\hspace*{\fill}}}
+\newcommand{\UF}[1]{\expandafter\UFaux\expandafter{#1}}
+
+\newcommand{\restoUF}{}
+
+\def\testespacoUF#1 #2\nilfim{\def\restoUF{#2}}
+
+\newcommand{\campogrande}[2]{%
+  \sbox{\boxUF}{\parbox{#1}{\hfuzz=100pt #2}}%
+  \ifdim\ht\boxUF>1.5\baselineskip
+    \noindent\parbox{#1}{#2}%
+  \else
+    \noindent\uline{\resizebox{#1}{!}{#2}}%
+  \fi
+  \par}
+
+\newcommand{\campodinamico}[2]{%
+  \expandafter\testespacoUF#2 \nilfim
+  \ifx\restoUF\empty
+    \sbox{\boxUF}{#1\hspace{0.15cm}#2}%
+    \ifdim\wd\boxUF>\linewidth\relax
+      \noindent#1\par
+      \campogrande{\linewidth}{#2}%
+    \else
+      \noindent#1\hspace{0.15cm}\UF{#2}\par
+    \fi
+  \else
+    \noindent#1\hspace{0.15cm}\UF{#2}\par
+  \fi}
+
+\newcommand{\flinha}[2]{\campodinamico{#1}{#2}}
+
+\newcommand{\textoautores}{}
+
+\newcommand{\acumulaaut}[1]{%
+  \ifblank{#1}{}{%
+    \ifdefempty{\textoautores}{}{\gappto\textoautores{; }}%
+    \gappto\textoautores{#1}}}
+
+\newcommand{\montaautores}{%
+  \gdef\textoautores{}%
+  \renewcommand*{\do}{\acumulaaut}%
+  \expandafter\docsvlist\expandafter{\FAutores}}
+
+\newcommand{\flinhaautores}{%
+  \montaautores
+  \campodinamico{Autor(es):}{\textoautores}}
+
+\newcommand{\propitem}[3]{%
+  \noindent\makebox[0.6cm][c]{\caixa{#1}}%
+  \hspace{1mm}\mbox{\textbf{#2:} #3}\par}
+
+\newcommand{\propitemlivre}[3]{%
+  \noindent\makebox[0.6cm][c]{\caixa{#1}}\hspace{1mm}%
+  \expandafter\testespacoUF#3 \nilfim
+  \ifx\restoUF\empty
+    \sbox{\boxUF}{\hspace*{0.7cm}\textbf{#2:}\hspace{0.15cm}#3}%
+    \ifdim\wd\boxUF>\linewidth\relax
+      \textbf{#2:}\par
+      \campogrande{\linewidth}{#3}%
+    \else
+      \textbf{#2:}\hspace{0.15cm}\UF{#3}\par
+    \fi
+  \else
+    \textbf{#2:}\hspace{0.15cm}\UF{#3}\par
+  \fi}
+
+\newcommand{\LAss}{7.2cm}
+
+\newcommand{\assvazia}[1]{%
+  \begin{minipage}[t]{\LAss}\centering
+    \rule{\LAss}{0.4pt}\\
+    \textbf{\small #1}
+  \end{minipage}}
+
+\newcommand{\fileira}[2]{%
+  \noindent\assvazia{#1}\hfill\assvazia{#2}\par}
+
+\newcommand{\sozinha}[1]{%
+  \noindent\makebox[\textwidth][c]{\assvazia{#1}}\par}
+
+\newcounter{idxsig}
+
+\newcommand{\pendleg}{}
+
+\newcommand{\linhasig}[1]{%
+  \stepcounter{idxsig}%
+  \ifodd\value{idxsig}%
+    \ifnum\value{idxsig}=1 \gdef\pendleg{Assinatura do autor correspondente}%
+    \else \gdef\pendleg{Assinatura do(a) coautor(a)}\fi
+  \else
+    \ifnum\value{idxsig}>2 \gap{ass-ass}{16.3}\fi
+    \fileira{\pendleg}{Assinatura do(a) coautor(a)}%
+  \fi}
+
+\newcommand{\blocoassinaturas}{%
+  \setcounter{idxsig}{0}%
+  \renewcommand*{\do}{\linhasig}%
+  \expandafter\docsvlist\expandafter{\FAutores}%
+  \ifnum\value{idxsig}=0 \sozinha{Assinatura do autor correspondente}\fi
+  \ifodd\value{idxsig}%
+    \ifnum\value{idxsig}=1 \sozinha{Assinatura do autor correspondente}%
+    \else \gap{ass-ass}{16.3}\sozinha{Assinatura do(a) coautor(a)}\fi
+  \fi}
+
+\begin{document}
+
+{\setlength{\unitlength}{1mm}%
+\begin{picture}(0,0)
+  \put(-17.3,-10.4){\includegraphics[height=2.20cm]{figuras/brasao-ufape.pdf}}%
+  \put(144,-10.4){\includegraphics[height=2.20cm]{figuras/marca-mec.pdf}}%
+\end{picture}}%
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{14.2cm}\centering\bfseries\fontsize{11}{18.1}\selectfont
+    Ministério da Educação\\
+    Universidade Federal do Agreste de Pernambuco\\
+    \ifdefempty{\FCursoHeader}{}{\FCursoHeader}%
+  \end{minipage}%
+}
+
+\gap{cab-titulo}{3.5}
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{15cm}\centering\bfseries\fontsize{12}{15}\selectfont
+    Declaração de Uso de Inteligência Artificial
+  \end{minipage}%
+}
+
+\gap{titulo-1}{3.0}
+
+\pdfbookmark[1]{Identificacao do manuscrito}{secId}
+\flinha{Título do Trabalho:}{\FTitulo}
+
+\gap{id-id}{1.8}
+\flinhaautores
+
+\gap{id-corpo}{1.2}
+\begin{spacing}{1.22}
+Nós, os autores do manuscrito acima identificado, declaramos que:
+\end{spacing}
+
+\gap{id-1}{3.0}
+\pdfbookmark[1]{1 - Uso de Ferramentas de Inteligencia Artificial}{sec1}
+\noindent\textbf{1- Uso de Ferramentas de Inteligência Artificial:}
+
+\gap{1}{0.5}
+\begin{spacing}{1.22}
+Durante o desenvolvimento deste trabalho, as seguintes ferramentas de inteligência artificial foram utilizadas:
+\end{spacing}
+
+\gap{p1-fer}{1.2}
+\flinha{Ferramenta(s):}{\FFerramentas}
+
+\gap{fer-prop}{1.0}
+\noindent\textbf{Propósito(s)} (marque todos os que se aplicam e forneça detalhes adicionais se necessário):
+
+\gap{prop-itens}{0.5}
+\propitem{\FRev}{Revisão de linguagem}{gramática, ortografia, clareza e estilo.}
+\propitem{\FTra}{Tradução}{conversão do manuscrito para outro idioma.}
+\propitem{\FGer}{Geração de texto}{rascunhos e sugestões revisados pelos autores.}
+\propitem{\FAna}{Análise de dados}{processamento e interpretação de dados.}
+\propitem{\FVis}{Visualização de dados ou imagens}{criação ou refinamento de figuras e gráficos.}
+\propitem{\FMet}{Sugestões metodológicas}{ideias para aprimorar a pesquisa.}
+\propitemlivre{\FOut}{Outros (especificar)}{\FOutDetalhe}
+
+\gap{itens-2}{3.0}
+\pdfbookmark[1]{2 - Autoria e Supervisao Humana}{sec2}
+\noindent\textbf{2- Autoria e Supervisão Humana:}
+
+\gap{2}{0.5}
+\begin{spacing}{1.22}
+A utilização de ferramentas de inteligência artificial foi exclusivamente para os propósitos acima declarados. Toda supervisão, validação e autoria intelectual do manuscrito são de responsabilidade dos autores humanos.
+\end{spacing}
+
+\gap{2-3}{3.0}
+\pdfbookmark[1]{3 - Conformidade com Principios Eticos}{sec3}
+\noindent\textbf{3- Conformidade com Princípios Éticos:}
+
+\gap{3}{0.5}
+\begin{spacing}{1.22}
+O uso das ferramentas de IA seguiu práticas éticas e não incluiu atividades como fabricação de dados, plágio, manipulação de figuras ou qualquer prática que comprometa a integridade científica.
+\end{spacing}
+
+\gap{3-4}{3.0}
+\pdfbookmark[1]{4 - Transparencia}{sec4}
+\noindent\textbf{4- Transparência:}
+
+\gap{4}{0.5}
+\begin{spacing}{1.22}
+Declaramos que as informações acima são completas e verdadeiras. Caso seja identificada qualquer inconsistência ou uso inadequado, aceitamos que o manuscrito seja submetido a investigação e, se necessário, rejeitado ou retratado.
+\end{spacing}
+
+\gap{texto-ass}{12.3}
+
+\pdfbookmark[1]{Assinaturas}{secAss}
+\noindent\begin{minipage}[t]{\textwidth}
+\blocoassinaturas
+
+\gap{ass-data}{11.3}
+\noindent\makebox[\textwidth][c]{%
+  \FCidade, \FDia\ de \FMes\ de \FAno.}
+\end{minipage}
+
+\end{document}

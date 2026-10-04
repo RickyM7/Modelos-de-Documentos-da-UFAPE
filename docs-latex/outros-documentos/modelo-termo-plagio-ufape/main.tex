@@ -1,0 +1,131 @@
+% Termo de Compromisso de Autoria e Originalidade (plágio) - UFAPE
+% {} deixa o campo em branco.
+\documentclass[11pt,a4paper]{article}
+
+% BLOCO DE DADOS: ALTERE APENAS OS CAMPOS ABAIXO
+% Cabeçalho institucional, terceira linha
+% Nome do curso, ex.: Bacharelado em Ciência da Computação
+\newcommand{\FCursoHeader}{Bacharelado em Ciência da Computação}
+
+% Identificação do trabalho, vai no corpo da declaração
+% Nome completo do(a) discente, ex.: Maria da Silva
+\newcommand{\FDiscente}{}
+% Nome do curso, ex.: Ciência da Computação
+\newcommand{\FCursoTrabalho}{Ciência da Computação}
+% Tipo por extenso, ex.: Trabalho de Conclusão de Curso
+\newcommand{\FTipoTCC}{Trabalho de Conclusão de Curso}
+% Documento por extenso, ex.: Monografia de Conclusão de Curso
+\newcommand{\FTipoDoc}{Monografia de Conclusão de Curso}
+% Início do período, ex.: março de 2025
+\newcommand{\FPeriodoDe}{maio de 2026}
+% Fim do período, ex.: dezembro de 2025
+\newcommand{\FPeriodoAte}{setembro de 2026}
+% Local de execução, ex.: UFAPE -- Avenida Bom Pastor, s/n. -- Boa Vista, Garanhuns/PE
+\newcommand{\FLocalExec}{UFAPE -- Avenida Bom Pastor, s/n. -- Boa Vista, Garanhuns/PE}
+
+% Local e data, vão na última linha
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{Garanhuns}
+% Dia, em número, ex.: 10
+\newcommand{\FDia}{}
+% Mês, por extenso, ex.: Janeiro
+\newcommand{\FMes}{}
+% Ano, em número, ex.: 2026
+\newcommand{\FAno}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\hyphenation{ma-tri-cu-la-do Con-clu-sao}
+\usepackage[a4paper,left=3cm,right=3cm,top=1.6cm,bottom=1.6cm]{geometry}
+\usepackage[bookmarksnumbered=true,psdextra,pdfencoding=auto]{hyperref}
+\hypersetup{hidelinks}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+
+\newcommand{\gap}[2]{\vspace{#2mm}}
+
+\newcommand{\LAss}{7.2cm}
+
+\newcommand{\assvazia}[1]{%
+  \begin{minipage}[t]{\LAss}\centering
+    \rule{\LAss}{0.4pt}\\
+    \textbf{\small #1}
+  \end{minipage}}
+
+\begin{document}
+
+{\setlength{\unitlength}{1mm}%
+\begin{picture}(0,0)
+  \put(-17.3,-10.4){\includegraphics[height=2.20cm]{figuras/brasao-ufape.pdf}}%
+  \put(144,-10.4){\includegraphics[height=2.20cm]{figuras/marca-mec.pdf}}%
+\end{picture}}%
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{14.2cm}\centering\bfseries\fontsize{11}{18.1}\selectfont
+    Ministério da Educação\\
+    Universidade Federal do Agreste de Pernambuco\\
+    \ifdefempty{\FCursoHeader}{}{\FCursoHeader}%
+  \end{minipage}%
+}
+
+\gap{cab-titulo}{3.5}
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{15cm}\centering\bfseries\fontsize{12}{15}\selectfont
+    Termo de Compromisso de Autoria e Originalidade (Plágio)
+  \end{minipage}%
+}
+
+\gap{titulo-1}{4.5}
+
+\pdfbookmark[1]{1 - Declaracao de autenticidade e originalidade}{sec1}
+\noindent\textbf{1- Declaração de autenticidade e originalidade:}
+
+\gap{1}{0.5}
+\begin{spacing}{1.22}
+O(a) discente\ifdefempty{\FDiscente}{}{ \textbf{\FDiscente}}, abaixo-assinado(a), regularmente matriculado(a) no \FTipoTCC\ do curso de \FCursoTrabalho, no período de \FPeriodoDe\ a \FPeriodoAte, realizado nas dependências do(a) \FLocalExec, declara que o conteúdo do(a) \FTipoDoc\ é autêntico, original e de sua exclusiva autoria e declara ainda ciência de que, na existência de plágio, estará sujeito(a) às penalidades cabíveis e previstas na lei de Direitos Autorais.
+\end{spacing}
+
+\gap{1-2}{3.0}
+
+\pdfbookmark[1]{2 - Das responsabilidades}{sec2}
+\noindent\textbf{2- Das responsabilidades:}
+
+\gap{2}{0.5}
+\begin{spacing}{1.22}
+A prática de plágio importa violação aos direitos de autor, nos termos da Lei n.\ 9.610, de 19 de fevereiro de 1998, e sujeita o(a) discente às seguintes consequências:
+
+a) \textbf{âmbito administrativo:} a improbidade na execução dos trabalhos acadêmicos constitui infração disciplinar, passível das penalidades de advertência, suspensão, reparação de danos ao patrimônio e desligamento, conforme o Manual de Conduta e Convivência Discente da UFAPE (Resolução n.\ 009/2023-CONSUNI);
+
+b) \textbf{âmbito penal:} conforme o art.\ 184 do Código Penal (Decreto-Lei n.\ 2.848, de 7 de dezembro de 1940), a violação a direito de autor é punida com detenção de 3 (três) meses a 1 (um) ano, ou multa; o seu parágrafo terceiro agrava a pena para reclusão de 2 (dois) a 4 (quatro) anos, e multa, quando a obra for disponibilizada ao público por sistema que permita ao usuário selecioná-la para recebê-la em tempo e lugar por este determinados.
+\end{spacing}
+
+\gap{2-3}{3.0}
+
+\pdfbookmark[1]{3 - Da ciencia}{sec3}
+\noindent\textbf{3- Da ciência:}
+
+\gap{3}{0.5}
+\begin{spacing}{1.22}
+Declaro ainda estar ciente de que a verificação da originalidade deste trabalho por meio de programa de detecção de semelhanças é de extrema relevância, e que a simples apresentação do manuscrito não exime o(a) discente de responder por eventuais similaridades entre o seu trabalho e o de terceiros.
+\end{spacing}
+
+\gap{texto-ass}{12.3}
+
+\pdfbookmark[1]{Assinaturas}{secAss}
+\noindent\begin{minipage}[t]{\textwidth}
+\assvazia{Assinatura do(a) discente}%
+\hfill
+\assvazia{Assinatura do(a) orientador(a)}
+
+\gap{ass-data}{11.3}
+\noindent\makebox[\textwidth][c]{%
+  \FCidade, \FDia\ de \FMes\ de \FAno.}
+\end{minipage}
+
+\end{document}
