@@ -1,8 +1,9 @@
-% ufape.cls - trabalhos acadêmicos da UFAPE (monografia e ESO).
-% Uso: \documentclass[monografia]{ufape} ou \documentclass[eso]{ufape}
+% ufape.cls - trabalhos acadêmicos da UFAPE (Monografia, ESO e Relatório de Pesquisa).
+% Uso: \documentclass[monografia]{ufape} ou \documentclass[eso]{ufape}.
+% O Relatório de Pesquisa usa a opção monografia, com \caparelatorio.
 % Opções: arial, notas, frenteeverso.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ufape}[2026/09/30 Modelo UFAPE: monografia e relatório de ESO]
+\ProvidesClass{ufape}[2026/10/15 Modelo UFAPE: Monografia, ESO e Relatório de Pesquisa]
 
 % Opções
 \newif\ifufape@eso
@@ -435,6 +436,52 @@
   \else\ufape@nl{\ufape@nfim}\ufape@dy{27pt}{\ufapelh}\fi}
 \newcommand{\apendice}[2]{\ufape@posdivisao{Apêndice}{#1}{#2}}
 \newcommand{\anexo}[2]{\ufape@posdivisao{Anexo}{#1}{#2}}
+
+% Relatório de Pesquisa (baseado no Template para Relatório de Pesquisa.docx).
+% Capa e folha de rosto com brasão da UFAPE e marca do MEC no cabeçalho,
+% no mesmo estilo dos formulários de uma página.
+\newcommand{\programa}[1]{\def\ufape@programa{#1}}
+\newcommand{\tituloprojeto}[1]{\def\ufape@tituloprojeto{#1}}
+\newcommand{\areapesquisa}[1]{\def\ufape@areapesquisa{#1}}
+\newcommand{\tiporelatorio}[1]{\def\ufape@tiporelatorio{#1}}
+\def\ufape@programa{(NOME DO PROGRAMA)}
+\def\ufape@tituloprojeto{TÍTULO DO PROJETO DE PESQUISA: XXXXX}
+\def\ufape@areapesquisa{XXXX}
+\def\ufape@tiporelatorio{Relatório de XXX}
+\newcommand{\ufape@logosrelatorio}{%
+  \AddToShipoutPictureBG*{%
+    \AtPageUpperLeft{%
+      \put(76.6,-106.5){\includegraphics[height=61.8pt]{figuras/brasao-ufape.pdf}}%
+      \put(539,-106.5){\makebox(0,0)[br]{%
+        \includegraphics[height=61.8pt]{figuras/marca-mec.pdf}}}}}}
+\newcommand{\caparelatorio}{%
+  \clearpage\thispagestyle{empty}\ufape@logosrelatorio
+  \ufape@top{41.4pt}%
+  \ufape@cl{\bfseries\ufape@INSTITUICAO}%
+  \ufape@cl{\bfseries\MakeUppercase{\ufape@programa}}%
+  \ufape@nl{\ufape@nreq}
+  \ufape@blank{8}%
+  \ufape@cl{\bfseries\MakeUppercase{\ufape@tituloprojeto}}%
+  \ufape@nl{\ufape@nreq}
+  \ufape@blank{2}%
+  \ufape@cl{\bfseries\MakeUppercase{\ufape@titulo}}%
+  \ufape@nl{\ufape@nreq}
+  \ufape@blank{12}%
+  \ufape@cl{\MakeUppercase{\ufape@cidade}}\ufape@cl{\ufape@ano}%
+  \clearpage}
+\newcommand{\ufape@naturezarelatorio}{%
+  \ufape@tiporelatorio\ apresentado à \ufape@instituicao,
+  vinculado à área de \ufape@areapesquisa, como parte das
+  atividades do \ufape@programa, sob orientação de
+  \ufape@orientador, no período de \ufape@periodo.}
+\newcommand{\folhaderostorelatorio}{%
+  \cleardoublepage\thispagestyle{empty}
+  \ufape@cl{\bfseries\MakeUppercase{\ufape@autor}}\ufape@nl{\ufape@nreq}
+  \ufape@blank{8}\ufape@cl{\bfseries\MakeUppercase{\ufape@titulo}}%
+  \ufape@nl{\ufape@nreq}
+  \ufape@dy{82pt}{13.8pt}%
+  \begin{ufape@bloco}\ufape@naturezarelatorio\end{ufape@bloco}
+  \clearpage}
 
 % Hiperlinks
 \AtEndPreamble{%

@@ -1,0 +1,74 @@
+% Modelo de Relatório de Pesquisa - UFAPE.
+% Baseado no Template para Relatório de Pesquisa.docx
+% (docs-originais) e padronizado no estilo dos modelos de
+% Monografia e ESO (mesma classe ufape, mesmas margens, fontes e títulos).
+% No Overleaf/Prism, abra o main.tex e compile.
+% Opções: arial (fonte Arial), notas (instruções do Word), frenteeverso (impressão dupla face).
+\documentclass[monografia]{ufape}
+
+% Dados
+\autor{Nome do Estudante}
+\titulo{TÍTULO DO PLANO DE TRABALHO}
+\tituloprojeto{TÍTULO DO PROJETO DE PESQUISA: XXXXX}
+\programa{(NOME DO PROGRAMA)}
+\areapesquisa{XXXX}
+\tiporelatorio{Relatório de XXX}
+\orientador{Prof. Dr. Xxxxxxxxxxxxxxxxx}
+\periodo{xx/xx/xxxx a xx/xx/xxxx}
+\cidade{Garanhuns}
+\ano{2026}
+
+\begin{document}
+
+% Pré-textuais
+\caparelatorio
+\folhaderostorelatorio
+
+% Orientações gerais do Word. Aparecem só com a opção `notas`; na versão
+% final elas somem (os campos de instrução devem ser apagados). A caixa
+% aparecia duplicada no Word; aqui ela entra uma única vez.
+\nota{A elaboração do relatório deve obedecer à estrutura definida neste modelo, com limite máximo de 20 páginas, contadas a partir da seção de Identificação do Projeto. O texto deve ser digitado em fonte Times New Roman, tamanho 12, com alinhamento justificado e espaçamento entre linhas de 1,5 salvo quando houver orientações específicas para campos determinados.}
+\nota{Os campos com instruções ou exemplos de preenchimento devem ser integralmente apagados antes da versão final do documento. Recomenda-se atenção à clareza, coesão textual e correção gramatical ao longo de toda a produção.}
+\nota{Todas as seções do relatório devem estar devidamente numeradas e identificadas com títulos em destaque, preferencialmente em negrito, a fim de garantir organização, legibilidade e fácil localização das informações pelo leitor ou avaliador.}
+
+\sumario
+
+% Textuais
+\iniciotexto
+
+\chapter{Introdução}
+\input{textuais/01-introducao}
+
+\chapter{Objetivos}
+\input{textuais/02-objetivos}
+
+\chapter{Fundamentação teórica}
+\input{textuais/03-fundamentacao}
+
+\chapter{Metodologia}
+\input{textuais/04-metodologia}
+
+\chapter{Resultados e discussão / Desenvolvimento do trabalho}
+\input{textuais/05-resultados}
+
+\chapter{Considerações parciais ou finais}
+\input{textuais/06-consideracoes}
+
+\chapter{Dificuldades encontradas}
+\input{textuais/07-dificuldades}
+
+% Pós-textuais (a seção 8 do Word; sem número, como na monografia e no ESO)
+\begin{referencias}
+  \input{pos-textuais/referencias}
+\end{referencias}
+
+% As referências ocupam a posição 8; os capítulos retomam em 9 e 10.
+\setcounter{chapter}{8}
+
+\chapter{Atividades do plano de trabalho não realizadas}
+\input{textuais/08-atividades-nao-realizadas}
+
+\chapter{Parecer do(a) orientador(a)}
+\input{textuais/09-parecer}
+
+\end{document}

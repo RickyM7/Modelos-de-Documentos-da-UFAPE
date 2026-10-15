@@ -1,6 +1,8 @@
 # Modelos de documentos da UFAPE em LaTeX
 
-Versões em LaTeX dos templates do SIB-UFAPE (monografia e relatório de ESO) e dos
+Versões em LaTeX dos templates do SIB-UFAPE (Monografia e Relatório de ESO),
+do modelo de Relatório de Pesquisa
+(`docs-originais/Template para Relatório de Pesquisa.docx`) e dos
 formulários de uma página usados no depósito no Repositório Institucional.
 
 Compila em qualquer distribuição LaTeX, no Overleaf, no Prism ou com o
@@ -23,12 +25,13 @@ sem arquivos de configuração.
 ### Trabalhos acadêmicos
 
 Usam a classe `ufape.cls`. Cada pasta é independente e traz sua própria cópia da classe
-(o arquivo é o mesmo nos dois modelos; a opção muda o comportamento).
+(o arquivo é o mesmo nos três modelos; a opção muda o comportamento).
 
 | Modelo | Pasta | Espaçamento entre linhas |
 |---|---|---|
 | Monografia / TCC | [`docs-latex/modelo-monografia-ufape/`](docs-latex/modelo-monografia-ufape/) | 1,5 |
 | Relatório de ESO | [`docs-latex/modelo-eso-ufape/`](docs-latex/modelo-eso-ufape/) | simples |
+| Relatório de Pesquisa | [`docs-latex/modelo-relatorio-pesquisa-ufape/`](docs-latex/modelo-relatorio-pesquisa-ufape/) | 1,5 |
 
 ### Formulários de uma página
 
@@ -88,10 +91,11 @@ ou gerenciador de pacotes (o pacote costuma se chamar `tectonic`). Veja o
 ## Estrutura do repositório
 
 ```
-docs-originais/     .doc e .pdf oficiais da biblioteca, usados como base
+docs-originais/     .doc, .docx e .pdf oficiais, usados como base
 docs-latex/
-  modelo-monografia-ufape/   main.tex, ufape.cls, pre-textuais/, textuais/, pos-textuais/, figuras/
-  modelo-eso-ufape/          main.tex, ufape.cls, pre-textuais/, textuais/, pos-textuais/, figuras/
+  modelo-monografia-ufape/       main.tex, ufape.cls, pre-textuais/, textuais/, pos-textuais/, figuras/
+  modelo-eso-ufape/              main.tex, ufape.cls, pre-textuais/, textuais/, pos-textuais/, figuras/
+  modelo-relatorio-pesquisa-ufape/   main.tex, ufape.cls, textuais/, pos-textuais/, figuras/
   outros-documentos/         um formulário por pasta, cada um com main.tex e figuras/
 ```
 
@@ -99,13 +103,14 @@ docs-latex/
 
 ## O que editar
 
-**Monografia e ESO.** Editar o `main.tex` (metadados) e os arquivos `.tex` de
-`pre-textuais/`, `textuais/` e `pos-textuais/`. Não mexer no `ufape.cls` — é o que
+**Monografia, ESO e Relatório de Pesquisa.** Editar o `main.tex` (metadados) e os arquivos `.tex` de
+`textuais/` e `pos-textuais/` (`pre-textuais/` só existe na monografia e no ESO).
+Não mexer no `ufape.cls` — é o que
 controla margens, fontes, espaçamento e paginação.
 
 Apague o texto de exemplo e substitua pelo seu. Em especial:
 
-- o parágrafo de demonstração `\textopadrao{...}` e as chamadas a ele;
+- o parágrafo de demonstração `\textopadrao{...}` e as chamadas a ele (monografia e ESO);
 - as instruções do Word — no Word elas aparecem em azul; aqui ficam escondidas por
   padrão e só aparecem com a opção `notas`.
 
@@ -116,7 +121,7 @@ arquivo é o modelo em si.
 
 | Opção | Efeito |
 |---|---|
-| `monografia` / `eso` | escolhe o modelo (padrão: `monografia`) |
+| `monografia` / `eso` | escolhe o modelo (padrão: `monografia`; o Relatório de Pesquisa usa `monografia`) |
 | `arial` | usa Arial no lugar de Times |
 | `notas` | mostra as instruções azuis vindas do Word |
 | `frenteeverso` | margens espelhadas para impressão duplex |
@@ -131,7 +136,7 @@ Extraídas dos templates oficiais e já implementadas na classe.
 |---|---|
 | Fonte | Times New Roman ou Arial, tamanho 12, texto justificado |
 | Parágrafo | recuo de 1,25 cm, sem espaço entre parágrafos |
-| Espaçamento | monografia 1,5; ESO simples (a coordenação pode unificar em 1,5) |
+| Espaçamento | monografia 1,5; ESO simples (a coordenação pode unificar em 1,5); Relatório de Pesquisa 1,5 |
 | Espaço simples | citação longa, notas, referências, legendas, fonte das ilustrações, ficha catalográfica, natureza (folha de rosto e de aprovação) |
 | Margens | frente: 3 cm esquerda/superior, 2 cm direita/inferior; no verso as margens se invertem |
 | Paginação | contadas a partir da capa, numeradas a partir da introdução, no canto superior direito |
@@ -141,7 +146,7 @@ Extraídas dos templates oficiais e já implementadas na classe.
 | Resumo | 150 a 500 palavras, sem citações |
 | Palavras-chave | 3 a 5, minúsculas (exceto nomes próprios), separadas por `;` e com ponto final |
 | Referências | ordem alfabética, alinhadas à esquerda, espaço simples, uma linha em branco entre elas (NBR 6023) |
-| Assinaturas | a folha de aprovação leva só nomes, sem assinaturas; nenhuma assinatura no corpo do trabalho |
+| Assinaturas | a folha de aprovação leva só nomes, sem assinaturas; nenhuma assinatura no corpo do trabalho (no Relatório de Pesquisa, as assinaturas vão na seção 10, Parecer) |
 
 Normas citadas nos templates: NBR 6023 (referências), 6024 (numeração progressiva),
 6027 (sumário), 6028 (resumo), 6034 (índice), 10520 (citações), 10719 (relatório
@@ -162,6 +167,17 @@ e anexo A (formulário de identificação). Opcionais: errata, agradecimentos, l
 apêndice B e anexo B. Não tem abstract, dedicatória nem epígrafe — nem ficha
 catalográfica, que só é exigida para monografia, dissertação e tese.
 
+**Relatório de Pesquisa.** Segue o `Template para Relatório de Pesquisa.docx`
+(em `docs-originais/`): capa (com brasão da UFAPE e
+marca do MEC), folha de rosto, sumário e as seções 1 a 10 (introdução,
+objetivos geral e específicos, fundamentação teórica, metodologia, resultados e
+discussão, considerações parciais ou finais, dificuldades encontradas,
+referências, atividades não realizadas e parecer do orientador, com local, data
+e assinaturas). Limite de 20 páginas a partir da identificação do projeto;
+Times 12, justificado, 1,5. As referências usam o estilo pós-textual da classe
+(título centralizado, sem número) e ocupam a posição 8 — por isso o modelo
+retoma a numeração em 9 e 10 com `\setcounter{chapter}{8}`.
+
 **Errata** só entra se você precisar corrigir algo depois de impresso: é um papel
 avulso logo após a folha de rosto. Apêndices e anexos que levem assinatura devem
 tê-la ocultada.
@@ -176,6 +192,10 @@ tê-la ocultada.
 `\ano` · `\dataaprovacao` · `\logocurso` · `\orientador` (monografia) ·
 `\supervisor` e `\periodo` (ESO) · `\membrobanca` (repita para cada membro)
 
+No Relatório de Pesquisa, `\titulo` é o título do plano de trabalho, e há
+comandos próprios: `\tituloprojeto` · `\programa` · `\areapesquisa` ·
+`\tiporelatorio` · `\orientador` · `\periodo` · `\cidade` · `\ano`.
+
 `\logocurso` troca o logo da capa; apague a linha para não usar.
 `\dataaprovacao` vem como `____/____/____`; só preencha se souber a data.
 
@@ -183,8 +203,10 @@ tê-la ocultada.
 
 | Comando | O que faz |
 |---|---|
-| `\capa` | capa |
-| `\folhaderosto` | folha de rosto |
+| `\capa` | capa (monografia e ESO) |
+| `\caparelatorio` | capa do Relatório de Pesquisa (brasão da UFAPE + marca do MEC) |
+| `\folhaderosto` | folha de rosto (monografia e ESO) |
+| `\folhaderostorelatorio` | folha de rosto do Relatório de Pesquisa (autor, título e natureza em bloco) |
 | `\fichacatalografica` | folha da ficha catalográfica |
 | `\folhadeaprovacao` | folha de aprovação |
 | `\conteudofolhaaprovacao` | conteúdo da folha, para reaproveitar no apêndice |
