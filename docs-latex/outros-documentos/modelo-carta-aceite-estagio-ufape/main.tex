@@ -1,0 +1,136 @@
+% Carta de Aceite do Supervisor do Estágio Obrigatório
+% Campo vazio sai como linha para preencher; campo preenchido sai com o texto digitado.
+% Edite apenas o bloco de dados abaixo.
+\documentclass[12pt,a4paper]{article}
+
+% BLOCO DE DADOS
+% Logotipo da empresa, ex.: figuras/logo-empresa.pdf. Deixe vazio para não usar logotipo.
+\newcommand{\FEmpresaLogo}{figuras/logo-empresa.pdf}
+
+% Supervisor
+% Nome completo, ex.: Jose da Silva
+\newcommand{\FSupervisor}{}
+% CPF, ex.: 000.000.000-00
+\newcommand{\FCPF}{}
+% Graduação, ex.: Direito
+\newcommand{\FFormacao}{}
+% Cargo na empresa, ex.: Diretor
+\newcommand{\FCargo}{}
+
+% Estagiário(a)
+% Nome completo, ex.: Maria da Silva
+\newcommand{\FEstudante}{}
+% Curso, ex.: Bacharelado em Ciência da Computação
+\newcommand{\FCurso}{}
+
+% Período do estágio
+% Início, ex.: 01/03/2026
+\newcommand{\FInicio}{}
+% Fim, ex.: 30/06/2026
+\newcommand{\FFim}{}
+
+% Rodapé com os dados da empresa
+% Razão social e CNPJ, ex.: Empresa Exemplo Ltda, 00.000.000/0001-00,
+\newcommand{\FEmpresa}{Empresa Exemplo Ltda, 00.000.000/0001-00,}
+% Endereço, ex.: Av. Bom Pastor, s/n - Boa Vista - Garanhuns - PE - CEP: 55292-278,
+\newcommand{\FEmpresaEndereco}{Av. Bom Pastor, s/n - Boa Vista - Garanhuns - PE - CEP: 55292-278,}
+% Telefone e e-mail, ex.: (00) 0000-0000, contato@empresa.com.br
+\newcommand{\FEmpresaContato}{(00) 0000-0000, contato@empresa.com.br}
+
+% Local e data
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{Garanhuns}
+% Dia, ex.: 10
+\newcommand{\FDia}{}
+% Mês, por extenso, ex.: março
+\newcommand{\FMes}{}
+% Ano, ex.: 2026
+\newcommand{\FAno}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage[a4paper,left=3cm,right=3cm,top=1.25cm,bottom=1.52cm]{geometry}
+\usepackage[bookmarksnumbered=true,psdextra,pdfencoding=auto]{hyperref}
+\hypersetup{hidelinks}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+\tolerance=9999
+% Sem hifenização
+\hyphenpenalty=10000 \exhyphenpenalty=10000
+% Parágrafos: recuo de 0,75 cm na primeira linha e 10 pt entre parágrafos
+\newcommand{\paragrafocarta}{\setlength{\parindent}{0.75cm}\setlength{\parskip}{10pt}}
+% Entrelinha de 15,85 pt
+\linespread{1.09}
+
+\newcommand{\gap}[2]{\vspace{#2mm}}
+
+% Sublinhado que acompanha a quebra de linha
+\newcommand{\ulgap}{\leaders\hrule height -1pt depth 1.4pt
+  \hskip\fontdimen2\font plus\fontdimen3\font minus\fontdimen4\font\relax}
+\newcommand{\ulw}[1]{{\setbox0\hbox{#1}\dimen0=\wd0 \copy0 \kern-\dimen0
+  \vrule height -1pt depth 1.4pt width\dimen0 }}
+\def\ulf#1{\ulfA#1 \ulfq\ulfend}
+\def\ulfA#1 #2\ulfend{\ulw{#1}\ifx\ulfq#2\else\ulgap\ulfA#2\ulfend\fi}
+
+% Campo do texto: linha em branco quando vazio, texto sublinhado quando preenchido.
+% O argumento opcional é a largura da linha.
+\newcommand{\campo}[2][2.5cm]{%
+  \ifdefempty{#2}{\allowbreak\rule{#1}{0.4pt}\nobreak}{\expandafter\ulf\expandafter{#2}}}
+
+% Campo da data: igual ao anterior, mas sem sublinhado
+\newcommand{\campodata}[2][2.5cm]{%
+  \ifdefempty{#2}{\allowbreak\rule{#1}{0.4pt}\nobreak}{#2}}
+
+% Linha de assinatura com legenda
+\newcommand{\assinatura}[1]{%
+  \noindent\makebox[\textwidth][c]{%
+    \begin{minipage}{\textwidth}\centering
+      \rule{6.6cm}{0.4pt}\\[2.3mm]
+      #1%
+    \end{minipage}}\par}
+
+\begin{document}
+
+\noindent\makebox[\textwidth][c]{%
+  \ifdefempty{\FEmpresaLogo}{}{\includegraphics[height=3.17cm]{\FEmpresaLogo}}}
+
+\gap{logo-titulo}{15.8}
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{\textwidth}\centering\bfseries
+    CARTA DE ACEITE DO SUPERVISOR DO ESTÁGIO OBRIGATÓRIO
+  \end{minipage}}
+
+\gap{titulo-corpo}{28.4}
+\paragrafocarta
+Eu, \campo[3.8cm]{\FSupervisor}, CPF: \campo[3.8cm]{\FCPF}, graduado em
+\campo[1.5cm]{\FFormacao}, cargo \campo[4.4cm]{\FCargo}, aceito supervisionar o Estágio
+Obrigatório do(a) estudante \campo[3cm]{\FEstudante}, regularmente matriculado no curso de
+\campo[2.5cm]{\FCurso}, da Universidade Federal do Agreste de Pernambuco, no período
+correspondente a \campo[2cm]{\FInicio} a \campo[2cm]{\FFim}.
+
+Comprometo-me, ao final do estágio, a emitir declaração com o nome, CPF, período do estágio,
+carga horária total e avaliação do estagiário.
+
+\gap{corpo-data}{27.6}
+\noindent\makebox[\textwidth][r]{\FCidade, \campodata[1.2cm]{\FDia}\ de \campodata[2.5cm]{\FMes}\ de \campodata[1.5cm]{\FAno}.}
+
+\gap{data-assinatura}{23.3}
+\assinatura{(Assinatura e carimbo ou assinatura eletrônica do Supervisor)}
+
+\vfill
+\setlength{\parskip}{0pt}\linespread{1}%
+\sffamily\fontsize{12}{15}\selectfont
+\noindent\begin{minipage}{\textwidth}\centering
+  \leavevmode\FEmpresa\\
+  \leavevmode\FEmpresaEndereco\\
+  \leavevmode\FEmpresaContato
+\end{minipage}\par
+
+\end{document}

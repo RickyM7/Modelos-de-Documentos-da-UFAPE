@@ -1,0 +1,289 @@
+% Ficha de Frequência de Estágio
+% Campo vazio sai em branco para preencher; campo preenchido sai com o texto digitado.
+% Edite apenas o bloco de dados abaixo.
+\documentclass[10pt,a4paper]{article}
+
+% BLOCO DE DADOS
+% Instituição, ex.: Universidade Federal do Agreste de Pernambuco
+\newcommand{\FInstituicao}{}
+% Curso, ex.: Bacharelado em Ciência da Computação
+\newcommand{\FCurso}{}
+% Nome do(a) estagiário(a), ex.: Maria da Silva
+\newcommand{\FEstagiario}{}
+% Número de matrícula, ex.: 20260000
+\newcommand{\FMatricula}{}
+% Empresa, ex.: Empresa Exemplo Ltda
+\newcommand{\FEmpresa}{}
+% CNPJ, ex.: 00.000.000/0001-00
+\newcommand{\FCNPJ}{}
+% Mês e ano de referência (só na folha em branco), ex.: março de 2026
+\newcommand{\FReferencia}{}
+% Tipo de estágio: obrigatorio ou naoobrigatorio. Vazio deixa os dois sem marcação.
+\newcommand{\FTipoEstagio}{}
+
+% Período do estágio
+% Preencha as duas datas no formato dd/mm/aaaa. O documento gera uma folha por mês,
+% já com os dias de segunda a sexta, os horários e a assinatura do estagiário.
+% Deixando a data de início vazia, sai uma folha em branco.
+% Data de início, ex.: 01/03/2026
+\newcommand{\FDataInicio}{}
+% Data de fim, ex.: 30/06/2026
+\newcommand{\FDataFim}{}
+% Feriados e outros dias sem estágio, separados por vírgula (pode ficar vazio), ex.: 01/05/2026, 04/06/2026
+\newcommand{\FFeriados}{}
+% Horário de entrada, ex.: 08:00
+\newcommand{\FHorarioEntrada}{}
+% Horário de saída, ex.: 12:00
+\newcommand{\FHorarioSaida}{}
+
+% Quantidade de linhas da folha em branco, ex.: 28
+\newcommand{\FLinhas}{28}
+
+% Local e data (usados apenas na folha em branco; nas folhas mensais
+% a data do rodapé é preenchida automaticamente com o último dia do mês)
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{}
+% Dia (folha em branco), ex.: 10
+\newcommand{\FDia}{}
+% Mês (folha em branco), por extenso, ex.: março
+\newcommand{\FMes}{}
+% Ano (folha em branco), ex.: 2026
+\newcommand{\FAno}{}
+
+% Assinatura do estagiário na coluna da tabela: imagem ou texto. Se os dois forem preenchidos, vale a imagem.
+% Imagem da assinatura, ex.: figuras/assinatura.png (usada se o arquivo existir na pasta)
+\newcommand{\FAssinaturaEstagiarioImagem}{}
+% Texto da assinatura, ex.: Maria da Silva
+\newcommand{\FAssinaturaEstagiarioTexto}{}
+% Quantidade de linhas assinadas na folha em branco, contando de cima, ex.: 22. Vazio assina todas.
+\newcommand{\FLinhasAssinadas}{}
+
+% Assinatura do supervisor: imagem ou texto. Se os dois forem preenchidos, vale a imagem.
+% Imagem da assinatura, ex.: figuras/assinatura.png (foto ou digitalização)
+\newcommand{\FAssinaturaImagem}{}
+% Texto da assinatura, ex.: Jose da Silva
+\newcommand{\FAssinaturaTexto}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[a4paper,left=2.75cm,right=2.59cm,top=4.70cm,bottom=2.54cm,%
+  headheight=2.8cm,headsep=1.47cm,footskip=1.32cm]{geometry}
+
+% Cabeçalho e rodapé institucionais, em todas as páginas
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{%
+  \makebox[0pt][l]{\hspace*{1.0cm}\smash{\raisebox{-0.365cm}{\includegraphics[height=2.41cm]{figuras/brasao-ufape.pdf}}}}%
+  \begin{minipage}[b]{\textwidth}\centering
+    \fontsize{12}{13.8}\selectfont
+    Ministério da Educação\\
+    Universidade Federal do Agreste de Pernambuco\\
+    Pró-Reitoria de Ensino e Graduação\\
+    \textbf{Coordenadoria de Estágios - CES/DPFIC}
+  \end{minipage}}
+\fancyfoot[C]{\sffamily\fontsize{9}{10.5}\selectfont
+  Av. Bom Pastor, s/n -- Boa Vista -- CEP 55292-278 -- Garanhuns, PE - E-mail: estagio.preg@ufape.edu.br}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+
+% Campo do texto: linha em branco quando vazio, texto digitado quando preenchido.
+% O argumento opcional é a largura da linha.
+\newcommand{\campo}[2][2cm]{%
+  \ifdefempty{#2}{\rule{#1}{0.4pt}}{#2}}
+
+% Tabela
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1}
+\newcommand{\altlinha}{\rule[-3.4pt]{0pt}{14pt}}
+% Larguras das colunas, com o preenchimento interno incluído
+\newlength{\cola}\setlength{\cola}{80.6pt}
+\newlength{\colb}\setlength{\colb}{102.95pt}
+\newlength{\colc}\setlength{\colc}{27.9pt}
+\newlength{\cold}\setlength{\cold}{66.2pt}
+\newlength{\cole}\setlength{\cole}{165.65pt}
+\newcommand{\colunas}[1]{\dimexpr#1-2\tabcolsep\relax}
+% Rótulo cinza seguido do valor
+\newcommand{\rotulo}[2]{\altlinha\textcolor[gray]{0.4}{\small #1} #2}
+% Marca do tipo de estágio: ( X ) quando selecionado
+\newcommand{\marca}[1]{(\,\ifdefstring{\FTipoEstagio}{#1}{X}{\hspace{0.45em}}\,)}
+% Assinatura do estagiário dentro de uma célula da tabela
+\newcommand{\assinaturaestagiario}{%
+  \ifdefempty{\FAssinaturaEstagiarioImagem}%
+    {\ifdefempty{\FAssinaturaEstagiarioTexto}{}%
+      {\makebox[\linewidth][c]{\usefont{T1}{pzc}{mb}{it}\fontsize{11}{12}\selectfont\FAssinaturaEstagiarioTexto}}}%
+    {\IfFileExists{\FAssinaturaEstagiarioImagem}%
+      {\makebox[\linewidth][c]{\raisebox{-2.35pt}[0pt][0pt]{\includegraphics[height=0.42cm,width=\dimexpr\linewidth-4pt\relax,keepaspectratio]{\FAssinaturaEstagiarioImagem}}}}{}}}
+\newcommand{\linhasassinadas}{\ifdefempty{\FLinhasAssinadas}{\FLinhas}{\FLinhasAssinadas}}
+
+% Nome do mês a partir do número
+\newcommand{\nomemes}[1]{\ifcase#1 \or janeiro\or fevereiro\or março\or abril\or maio\or junho\or julho\or agosto\or setembro\or outubro\or novembro\or dezembro\fi}
+
+% Linha pré-preenchida: data, horários e assinatura do estagiário
+\newcommand{\linhadia}[1]{\altlinha#1/\fmes/\fano&\FHorarioEntrada&\multicolumn{2}{p{\colunas{\colc+\cold}}|}{\FHorarioSaida}&\assinaturaestagiario\\\hline}
+\newcommand{\corpotabela}{\linhasvazias{\FLinhas}}
+
+% Linhas vazias da tabela, uma por chamada recursiva
+\newcommand{\linhasvazias}[1]{%
+  \ifnum#1>0
+    \altlinha&&\multicolumn{2}{p{\colunas{\colc+\cold}}|}{}&\ifnum#1>\numexpr\FLinhas-\linhasassinadas\relax\assinaturaestagiario\fi\\\hline
+    \expandafter\linhasvazias\expandafter{\number\numexpr#1-1\relax}%
+  \fi}
+
+% Assinatura: imagem ou texto sobre a linha
+\newcommand{\assinatura}{%
+  \makebox[7.5cm][c]{\rule{0pt}{1.7cm}%
+    \ifdefempty{\FAssinaturaImagem}%
+      {\ifdefempty{\FAssinaturaTexto}{}{\usefont{T1}{pzc}{mb}{it}\fontsize{20}{22}\selectfont\FAssinaturaTexto}}%
+      {\includegraphics[height=1.6cm,width=7cm,keepaspectratio]{\FAssinaturaImagem}}}}
+
+% Uma folha completa: título, tabela, local, data e assinatura
+\newcommand{\desenhafolha}{%
+
+\noindent\makebox[\textwidth][c]{\fontsize{12}{13.8}\selectfont\textbf{Controle de Frequência de Estágio}}\par
+\nointerlineskip\vspace{3pt}
+
+\noindent
+\begin{longtable}{|p{\colunas{\cola}}|p{\colunas{\colb}}|p{\colunas{\colc}}|p{\colunas{\cold}}|p{\colunas{\cole}}|}
+\hline
+\multicolumn{3}{|p{\colunas{\cola+\colb+\colc}}|}{\rotulo{Instituição:}{\FInstituicao}} &
+\multicolumn{2}{p{\colunas{\cold+\cole}}|}{\rotulo{Curso:}{\FCurso}} \\ \hline
+\multicolumn{3}{|p{\colunas{\cola+\colb+\colc}}|}{\rotulo{Nome do(a) Estagiário(a):}{\FEstagiario}} &
+\multicolumn{2}{p{\colunas{\cold+\cole}}|}{\rotulo{Matrícula n\textordmasculine:}{\FMatricula}} \\ \hline
+\multicolumn{3}{|p{\colunas{\cola+\colb+\colc}}|}{\rotulo{Empresa:}{\FEmpresa}} &
+\multicolumn{2}{p{\colunas{\cold+\cole}}|}{\rotulo{CNPJ n\textordmasculine:}{\FCNPJ}} \\ \hline
+\multicolumn{3}{|p{\colunas{\cola+\colb+\colc}}|}{\rotulo{Mês e ano de referência:}{\FReferencia}} &
+\multicolumn{2}{p{\colunas{\cold+\cole}}|}{\altlinha\textcolor[gray]{0.4}{\small Estágio obrigatório} \marca{obrigatorio}\hspace{0.6em}\textcolor[gray]{0.4}{\small Estágio não obrigatório} \marca{naoobrigatorio}} \\ \hline
+\multicolumn{1}{|p{\colunas{\cola}}|}{\altlinha Data} &
+\multicolumn{1}{p{\colunas{\colb}}|}{Horário de Entrada} &
+\multicolumn{2}{p{\colunas{\colc+\cold}}|}{Horário de Saída} &
+\multicolumn{1}{p{\colunas{\cole}}|}{Assinatura do Estagiário} \\ \hline
+\endfirsthead
+\hline
+\multicolumn{1}{|p{\colunas{\cola}}|}{\altlinha Data} &
+\multicolumn{1}{p{\colunas{\colb}}|}{Horário de Entrada} &
+\multicolumn{2}{p{\colunas{\colc+\cold}}|}{Horário de Saída} &
+\multicolumn{1}{p{\colunas{\cole}}|}{Assinatura do Estagiário} \\ \hline
+\endhead
+\corpotabela
+\end{longtable}
+
+% Local, data e assinatura do supervisor, sempre juntos na mesma página
+\vspace{14pt}
+\begin{minipage}{\textwidth}\centering
+\campo[3.4cm]{\FCidade}, \campo[1cm]{\FDia} de \campo[3.4cm]{\FMes} de \campo[1.8cm]{\FAno}.
+
+\vspace{4pt}
+\assinatura\\[-8pt]
+\rule{7.5cm}{0.4pt}\\[2pt]
+(Assinatura e carimbo ou assinatura eletrônica do Supervisor)
+\end{minipage}}
+
+% Cálculo das folhas a partir das datas, sem pacotes extras
+\newcount\anoI \newcount\mesI \newcount\diaI
+\newcount\anoF \newcount\mesF \newcount\diaF
+\newcount\anoC \newcount\mesC \newcount\diaC
+\newcount\ultdia \newcount\diasem \newcount\bis \newcount\auxc
+\def\lerinicio#1/#2/#3\relax{\diaI=#1 \mesI=#2 \anoI=#3 }
+\def\lerfim#1/#2/#3\relax{\diaF=#1 \mesF=#2 \anoF=#3 }
+\newcommand{\doisdig}[1]{\ifnum#1<10 0\fi\number#1}
+\def\listaferiados{}
+\newcommand{\calcbissexto}{%
+  \bis=0 \auxc=\anoC \divide\auxc by 4 \multiply\auxc by 4
+  \ifnum\auxc=\anoC \bis=1
+    \auxc=\anoC \divide\auxc by 100 \multiply\auxc by 100
+    \ifnum\auxc=\anoC \bis=0
+      \auxc=\anoC \divide\auxc by 400 \multiply\auxc by 400
+      \ifnum\auxc=\anoC \bis=1 \fi
+    \fi
+  \fi}
+% Dia da semana de \diaC/\mesC/\anoC em \diasem (0 = domingo)
+\newcommand{\calcsemana}{%
+  \auxc=\anoC \ifnum\mesC<3 \advance\auxc by -1 \fi
+  \diasem=\auxc
+  \divide\auxc by 4 \advance\diasem by \auxc
+  \auxc=\anoC \ifnum\mesC<3 \advance\auxc by -1 \fi
+  \divide\auxc by 100 \advance\diasem by -\auxc
+  \auxc=\anoC \ifnum\mesC<3 \advance\auxc by -1 \fi
+  \divide\auxc by 400 \advance\diasem by \auxc
+  \advance\diasem by \ifcase\mesC\or0\or3\or2\or5\or0\or3\or5\or1\or4\or6\or2\or4\fi\relax
+  \advance\diasem by \diaC
+  \auxc=\diasem \divide\auxc by 7 \multiply\auxc by 7 \advance\diasem by -\auxc}
+\newcommand{\coletadias}{%
+  \ifnum\diaC>\ultdia
+  \else
+    \calcsemana
+    \ifnum\diasem>0
+      \ifnum\diasem<6
+        \edef\hoje{\doisdig\diaC/\doisdig\mesC/\number\anoC}%
+        \expandafter\ifinlist\expandafter{\hoje}{\listaferiados}{}%
+          {\ifdefempty{\dias}{\edef\dias{\doisdig\diaC}}{\edef\dias{\dias,\doisdig\diaC}}}%
+      \fi
+    \fi
+    \advance\diaC by 1
+    \expandafter\coletadias
+  \fi}
+\newcommand{\gerames}{%
+  \calcbissexto
+  \ultdia=\ifcase\mesC\or31\or\ifnum\bis=1 29\else 28\fi\or31\or30\or31\or30\or31\or31\or30\or31\or30\or31\fi\relax
+  \diaC=1
+  \ifnum\anoC=\anoI \ifnum\mesC=\mesI \diaC=\diaI \fi\fi
+  \ifnum\anoC=\anoF \ifnum\mesC=\mesF \ultdia=\diaF \fi\fi
+  \def\dias{}%
+  \coletadias
+  \ifdefempty{\dias}{}{%
+    \edef\chamada{\noexpand\folha{\doisdig\mesC}{\number\anoC}{\dias}}%
+    \chamada}%
+  \advance\mesC by 1
+  \ifnum\mesC>12 \mesC=1 \advance\anoC by 1 \fi}
+\newcommand{\proximosmeses}{%
+  \ifnum\anoC<\anoF \gerames \expandafter\proximosmeses
+  \else\ifnum\anoC=\anoF \ifnum\mesC>\mesF \else \gerames \expandafter\expandafter\expandafter\proximosmeses\fi\fi\fi}
+\newcommand{\gerarfolhas}{%
+  \expandafter\lerinicio\FDataInicio\relax
+  \expandafter\lerfim\FDataFim\relax
+  \begingroup
+  \def\lerferiado##1/##2/##3\relax{\xdef\feriado{\doisdig{##1}/\doisdig{##2}/\number##3}}%
+  \def\do##1{\lerferiado##1\relax\listxadd\listaferiados{\feriado}}%
+  \expandafter\docsvlist\expandafter{\FFeriados}%
+  \endgroup
+  \ifnum\numexpr(\anoF*12+\mesF)*32+\diaF\relax<\numexpr(\anoI*12+\mesI)*32+\diaI\relax
+    \PackageError{ficha}{A data de fim é anterior à data de início}{Confira FDataInicio e FDataFim no bloco de dados.}%
+  \fi%
+  \anoC=\anoI \mesC=\mesI
+  \proximosmeses}
+
+% Guarda o último item da lista de dias (último dia de estágio do mês)
+\newcommand{\salvaultimo}[1]{\def\ultimodia{#1}}
+
+% Folha de um mês: preenche a referência, o rodapé e as linhas com as datas
+\newcommand{\folha}[3]{%
+  \begingroup
+  \def\fmes{#1}\def\fano{#2}%
+  \def\ultimodia{}%
+  \forcsvlist{\salvaultimo}{#3}%
+  \edef\FReferencia{\nomemes{#1} de #2}%
+  \edef\FDia{\ultimodia}%
+  \edef\FMes{\nomemes{#1}}%
+  \edef\FAno{#2}%
+  \renewcommand{\corpotabela}{\forcsvlist{\linhadia}{#3}}%
+  \desenhafolha
+  \endgroup
+  \clearpage}
+
+\begin{document}
+\ifdefempty{\FDataInicio}{\desenhafolha}{\gerarfolhas}
+\end{document}

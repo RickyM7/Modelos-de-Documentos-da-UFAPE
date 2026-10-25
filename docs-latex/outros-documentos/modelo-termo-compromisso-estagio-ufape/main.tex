@@ -1,0 +1,392 @@
+% Termo de Compromisso de Estágio Obrigatório (Bacharelado)
+% Campo vazio sai como linha para preencher; campo preenchido sai com o texto digitado.
+% Edite apenas o bloco de dados abaixo.
+\documentclass[10pt,a4paper]{article}
+
+% BLOCO DE DADOS
+% 1. Concedente
+% Razão social, ex.: Empresa Exemplo Ltda
+\newcommand{\FConcedente}{}
+% CNPJ, ex.: 00.000.000/0001-00
+\newcommand{\FConcedenteCNPJ}{}
+% Endereço, ex.: Av. Bom Pastor, s/n
+\newcommand{\FConcedenteEndereco}{}
+% Bairro, ex.: Boa Vista
+\newcommand{\FConcedenteBairro}{}
+% CEP, ex.: 55292-278
+\newcommand{\FConcedenteCEP}{}
+% Cidade, ex.: Garanhuns
+\newcommand{\FConcedenteCidade}{}
+% Estado, ex.: Pernambuco
+\newcommand{\FConcedenteEstado}{}
+% Representante da empresa, ex.: Jose da Silva
+\newcommand{\FConcedenteRepresentante}{}
+% Cargo do representante, ex.: Diretor
+\newcommand{\FConcedenteCargo}{}
+% E-mail, ex.: contato@empresa.com.br
+\newcommand{\FConcedenteEmail}{}
+% Telefone, ex.: (00) 0000-0000
+\newcommand{\FConcedenteTelefone}{}
+
+% 2. Estagiário(a)
+% Nome completo, ex.: Maria da Silva
+\newcommand{\FEstagiario}{}
+% CPF, ex.: 000.000.000-00
+\newcommand{\FEstagiarioCPF}{}
+% RG, ex.: 0.000.000
+\newcommand{\FEstagiarioRG}{}
+% Órgão de expedição e UF, ex.: SDS/PE
+\newcommand{\FEstagiarioOrgao}{}
+% Data de nascimento, ex.: 01/01/2000
+\newcommand{\FEstagiarioNascimento}{}
+% Endereço, ex.: Av. Bom Pastor, s/n
+\newcommand{\FEstagiarioEndereco}{}
+% Bairro, ex.: Boa Vista
+\newcommand{\FEstagiarioBairro}{}
+% CEP, ex.: 55292-278
+\newcommand{\FEstagiarioCEP}{}
+% Cidade, ex.: Garanhuns
+\newcommand{\FEstagiarioCidade}{}
+% Estado, ex.: Pernambuco
+\newcommand{\FEstagiarioEstado}{}
+% E-mail, ex.: nome@ufape.edu.br
+\newcommand{\FEstagiarioEmail}{}
+% Telefone, ex.: (00) 90000-0000
+\newcommand{\FEstagiarioTelefone}{}
+
+% 3. Instituição de ensino
+% Representante da UFAPE, ex.: Jose da Silva
+\newcommand{\FReitor}{}
+% Cargo do representante, ex.: Reitor
+\newcommand{\FReitorCargo}{Reitor}
+
+% Cláusula 2
+% Curso, ex.: Bacharelado em Ciência da Computação
+\newcommand{\FCurso}{Bacharelado em Ciência da Computação}
+% Código do componente de estágio, ex.: ABCD0000
+\newcommand{\FComponente}{CCMP3061}
+% Período do curso, ex.: 10\textordmasculine{}
+\newcommand{\FPeriodo}{10\textordmasculine{}}
+
+% Cláusula 3
+% Departamento ou setor, ex.: Desenvolvimento
+\newcommand{\FSetor}{}
+% Endereço do local do estágio, ex.: Av. Bom Pastor, s/n, Boa Vista, CEP 55292-278, Garanhuns, PE
+\newcommand{\FEnderecoEstagio}{}
+% Início do estágio, ex.: 01/03/2026
+\newcommand{\FInicio}{}
+% Fim do estágio, ex.: 30/06/2026
+\newcommand{\FFim}{}
+% Carga horária total, ex.: 300 horas
+\newcommand{\FCargaHoraria}{300 horas}
+% Horário de cada dia, ex.: 08:00 às 12:00. Dia com horário sai com a caixa marcada;
+% dia sem horário fica vazio.
+\newcommand{\FSegunda}{}
+\newcommand{\FTerca}{}
+\newcommand{\FQuarta}{}
+\newcommand{\FQuinta}{}
+\newcommand{\FSexta}{}
+
+% Cláusulas 4, 8, 9 e 10
+% Atividades do(a) estagiário(a), ex.: Desenvolvimento e manutenção de sistemas.
+\newcommand{\FAtividades}{}
+% Orientador(a) pela UFAPE, ex.: Jose da Silva
+\newcommand{\FOrientador}{}
+% Supervisor(a) pela concedente, ex.: Maria da Silva
+\newcommand{\FSupervisor}{}
+% Cargo do(a) supervisor(a), ex.: Analista
+\newcommand{\FSupervisorCargo}{}
+% Número da apólice, ex.: 0000000000
+\newcommand{\FApolice}{14.820.54179.001}
+% Seguradora, ex.: Seguradora Exemplo S.A.
+\newcommand{\FSeguradora}{MBM Seguradora S.A.}
+
+% Local e data
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{Garanhuns}
+% Dia, ex.: 10
+\newcommand{\FDia}{}
+% Mês, por extenso, ex.: março
+\newcommand{\FMes}{}
+% Ano, ex.: 2026
+\newcommand{\FAno}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[a4paper,left=2.5cm,right=2cm,top=3.2cm,bottom=2.37cm,%
+  headheight=2.4cm,headsep=0.24cm,footskip=0.8cm]{geometry}
+\usepackage[bookmarksnumbered=true,psdextra,pdfencoding=auto]{hyperref}
+\hypersetup{hidelinks}
+
+% Cabeçalho e rodapé institucionais, em todas as páginas
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{%
+  \makebox[0pt][l]{\hspace*{1.23cm}\raisebox{-16.1pt}{\includegraphics[height=2.39cm]{figuras/brasao-ufape.pdf}}}%
+  \begin{minipage}[b]{\textwidth}\centering
+    \fontsize{10}{11.5}\selectfont
+    Ministério da Educação\\
+    Universidade Federal do Agreste de Pernambuco\\
+    Pró-Reitoria de Ensino e Graduação\\
+    \textbf{Coordenadoria de Estágios - CES/DPFIC}
+  \end{minipage}}
+\fancyfoot[C]{\fontsize{10}{11.5}\selectfont
+  Av. Bom Pastor, s/n -- Boa Vista -- CEP 55292-278 -- Garanhuns, PE - E-mail: estagio.preg@ufape.edu.br}
+
+% Corpo do texto: 8 pt, espaço simples, justificado, sem recuo
+\AtBeginDocument{\fontsize{8}{9.2}\selectfont}
+\setlength{\topskip}{7.2pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{1em}
+
+\newcommand{\gap}[2]{\vspace{#2mm}}
+
+% Campo do texto: linha em branco quando vazio, texto digitado quando preenchido.
+% O argumento opcional é a largura da linha.
+\newcommand{\campo}[2][2.5cm]{%
+  \ifdefempty{#2}{\rule{#1}{0.4pt}}{#2}}
+
+% Campo no fim do parágrafo: quando vazio, a linha ocupa o resto da linha
+\newcommand{\campofim}[1]{%
+  \ifdefempty{#1}{\leaders\hrule height 0.4pt depth 0pt\hskip 2cm plus 1fill\relax}{#1}}
+
+% Caixa de marcação: quadrado vazio, ou com X quando marcada
+\newcommand{\diagonal}[1]{\makebox[0pt][c]{\raisebox{1.6mm}{\rotatebox[origin=c]{#1}{\rule[-0.25pt]{4.4mm}{0.5pt}}}}}
+\newcommand{\caixa}[1]{%
+  \raisebox{-0.5pt}{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.5pt}%
+    \fbox{\makebox[3.2mm][c]{\rule{0pt}{3.2mm}\ifdefempty{#1}{}{\diagonal{45}\diagonal{-45}}}}}}
+
+% Caixa do dia: marcada quando o horário do dia está preenchido
+\newcommand{\Vazio}{}
+\newcommand{\caixadia}[1]{%
+  \ifdefempty{#1}{\caixa{\Vazio}}{\caixa{X}}}
+
+% Caixas de identificação das partes (1, 2 e 3)
+\newcolumntype{B}{@{\hspace{3.5pt}}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-7pt-2\arrayrulewidth\relax}@{\hspace{3.5pt}}}
+\newenvironment{campos}{%
+  \par\noindent\setlength{\arrayrulewidth}{0.4pt}%
+  \begin{tabular}{|B|}\hline}{\end{tabular}\par}
+
+% Quadro do plano de atividades, em espaço duplo
+\newcommand{\caixaquadro}[1]{%
+  \par\noindent{\setlength{\fboxsep}{3.5pt}\setlength{\fboxrule}{0.4pt}%
+    \fbox{\parbox{\dimexpr\linewidth-7pt-2\fboxrule\relax}%
+      {\baselineskip=18.4pt\parskip=0pt\parindent=0pt\ifdefempty{#1}{\rule{0pt}{5.2em}}{\rule{0pt}{1.9em}}#1\rule[-0.9em]{0pt}{0pt}}}}\par\vspace{1.5mm}}
+
+% Algarismo do título na altura das maiúsculas
+\newcommand{\numcap}[1]{\scalebox{1.045}[1.045]{#1}}
+\newcommand{\clausula}[2]{%
+  \par\pdfbookmark[1]{CLÁUSULA #1 - #2}{cl:#1}%
+  \noindent\textbf{CLÁUSULA \numcap{#1}\textordfeminine{} -- #2}\par\nobreak
+  \vspace{-\parskip}}
+
+% Lista de incisos
+\newlist{incisos}{itemize}{1}
+\setlist[incisos]{label=\textbullet,leftmargin=1.27cm,labelsep=0.5cm,%
+  topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=0pt,before={\vspace{-6pt}}}
+
+% Assinatura: linha, legenda e observação
+\newcommand{\assina}[3][7cm]{%
+  \begin{minipage}[t]{#1}\centering
+    \rule{\linewidth}{0.4pt}\\[1mm]
+    #2%
+    \ifblank{#3}{}{\\[0.8mm]#3}%
+  \end{minipage}}
+
+\newcommand{\fileiraassinatura}[4]{%
+  \noindent\assina{#1}{#2}\hfill\assina{#3}{#4}\par}
+
+\begin{document}
+
+\noindent\makebox[\textwidth][c]{%
+  \textbf{\fontsize{8}{9.2}\selectfont
+    TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO - BACHARELADO}}
+
+\gap{titulo-caixas}{2.5}
+
+\begin{campos}
+\leavevmode\rule{0pt}{9.6pt}\pdfbookmark[1]{1 - Concedente}{box1}\textbf{1. CONCEDENTE}\newline
+\campo[5cm]{\FConcedente}, adiante \textbf{CONCEDENTE}\newline
+CNPJ: \campo[3cm]{\FConcedenteCNPJ}\newline
+ENDEREÇO: \campo[4cm]{\FConcedenteEndereco}\newline
+BAIRRO: \campo[2.5cm]{\FConcedenteBairro}\hspace{0.5cm}CEP: \campo[2cm]{\FConcedenteCEP}\newline
+CIDADE: \campo[2.5cm]{\FConcedenteCidade}\hspace{0.5cm}ESTADO: \campo[2.5cm]{\FConcedenteEstado}\newline
+REPRESENTADA POR: \campo[4cm]{\FConcedenteRepresentante}\newline
+CARGO: \campo[3cm]{\FConcedenteCargo}\newline
+EMAIL: \campo[4cm]{\FConcedenteEmail}\hspace{0.5cm}TELEFONE: \campo[2.5cm]{\FConcedenteTelefone}\rule[-3pt]{0pt}{0pt}
+\\\hline
+\leavevmode\rule{0pt}{9.6pt}\pdfbookmark[1]{2 - Estagiário}{box2}\textbf{2. ESTAGIÁRIO}\newline
+\campo[5cm]{\FEstagiario}, adiante \textbf{ESTAGIÁRIO}\newline
+CPF: \campo[2.5cm]{\FEstagiarioCPF}\hspace{0.5cm}RG: \campo[2.5cm]{\FEstagiarioRG}\hspace{0.5cm}ÓRGÃO DE EXPEDIÇÃO/UF: \campo[2cm]{\FEstagiarioOrgao}\newline
+DATA DE NASCIMENTO: \campo[2.5cm]{\FEstagiarioNascimento}\newline
+ENDEREÇO: \campo[4cm]{\FEstagiarioEndereco}\newline
+BAIRRO: \campo[2.5cm]{\FEstagiarioBairro}\hspace{0.5cm}CEP: \campo[2cm]{\FEstagiarioCEP}\newline
+CIDADE: \campo[2.5cm]{\FEstagiarioCidade}\hspace{0.5cm}ESTADO: \campo[2.5cm]{\FEstagiarioEstado}\newline
+EMAIL: \campo[4cm]{\FEstagiarioEmail}\hspace{0.5cm}TELEFONE: \campo[2.5cm]{\FEstagiarioTelefone}\rule[-3pt]{0pt}{0pt}
+\\\hline
+\leavevmode\rule{0pt}{9.6pt}\pdfbookmark[1]{3 - Instituição de Ensino}{box3}\textbf{3. INSTITUIÇÃO DE ENSINO}\newline
+UNIVERSIDADE FEDERAL DO AGRESTE DE PERNAMBUCO, adiante \textbf{UFAPE}\newline
+CNPJ n\textordmasculine{}: 35.872.812/0001-01\newline
+Natureza jurídica da instituição: autarquia federal vinculada ao Ministério da Educação\newline
+Endereço: AV. Bom Pastor, S/N -- Boa Vista  CEP: 55292-278 -- Garanhuns - PE\newline
+Representada por \campo[5cm]{\FReitor}, residente nesta cidade, na qualidade de \campo[2cm]{\FReitorCargo}\rule[-3pt]{0pt}{0pt}
+\\\hline
+\end{campos}
+
+As partes acima nomeadas celebram entre si este TERMO DE COMPROMISSO DE ESTÁGIO, de acordo
+com o disposto na Lei 11.788, de 25 de setembro de 2008 e legislação complementar, mediante
+as cláusulas e condições a seguir estabelecidas:
+
+\clausula{1}{DO OBJETIVO}
+O presente Termo de Compromisso tem por objetivo estabelecer as normas e condições de
+realização do \textbf{ESTÁGIO OBRIGATÓRIO}, em consonância com o que estabelece a Lei
+11.788/2008 e normas complementares.
+
+\clausula{2}{DO ESTAGIÁRIO}
+O(A) ESTAGIÁRIO(A) é discente do curso de \FCurso\ da UFAPE, estando regularmente
+matriculado(a) no componente curricular de Estágio Supervisionado Obrigatório
+(\FComponente) no \FPeriodo\ período.
+
+\clausula{3}{DAS CONDIÇÕES DO ESTÁGIO}
+O estágio será realizado no (departamento/setor) \campo[3cm]{\FSetor}, da EMPRESA/ESCOLA, no
+endereço: \campofim{\FEnderecoEstagio}.
+
+\noindent Vigência do estágio: \campo[2cm]{\FInicio} a \campo[2cm]{\FFim}
+
+\gap{vigencia-dias}{1}
+{\renewcommand{\arraystretch}{1.4}%
+\noindent\begin{tabular}{@{}l@{\hspace{1.8cm}}l@{}}
+Dias: & Horários:\\
+\caixadia{\FSegunda}\hspace{0.15cm}segunda-feira & \campo[2.5cm]{\FSegunda}\\
+\caixadia{\FTerca}\hspace{0.15cm}terça-feira & \campo[2.5cm]{\FTerca}\\
+\caixadia{\FQuarta}\hspace{0.15cm}quarta-feira & \campo[2.5cm]{\FQuarta}\\
+\caixadia{\FQuinta}\hspace{0.15cm}quinta-feira & \campo[2.5cm]{\FQuinta}\\
+\caixadia{\FSexta}\hspace{0.15cm}sexta-feira & \campo[2.5cm]{\FSexta}
+\end{tabular}\par}
+
+\gap{dias-carga}{2}
+\noindent Carga-horária total da disciplina: \FCargaHoraria
+
+\par\nobreak\vspace{-\parskip}
+\textbf{SUBCLÁUSULA ÚNICA} -- Em nenhuma hipótese as atividades de estágio poderão coincidir
+com o horário das aulas do ESTAGIÁRIO.
+
+\clausula{4}{DO PLANO DE ATIVIDADES}
+As atividades do estágio deverão ser elaboradas em conjunto pelo(a) ESTAGIÁRIO(A), pela UFAPE
+e pela CONCEDENTE, e deverão estar de acordo com a proposta pedagógica do curso, a etapa e
+modalidade da formação escolar do estudante e o horário e calendário escolar.
+
+\par\nobreak\vspace{-\parskip}
+\textbf{SUBCLÁUSULA ÚNICA}: O(a) estagiário(a) \textbf{desenvolverá as seguintes atividades}:
+(preencher o quadro de acordo com as atividades do estágio)
+
+\gap{texto-quadro}{1.5}
+\caixaquadro{\FAtividades}
+
+\clausula{5}{DAS OBRIGAÇÕES E RESPONSABILIDADES DA CONCEDENTE}
+A CONCEDENTE deverá:
+\begin{incisos}
+\item liberar o ESTAGIÁRIO, por ocasião das reuniões de acompanhamento, visitas técnicas e
+aulas práticas que forem oficializadas pela UFAPE, bem como a redução da carga horária do
+estágio, pelo menos à metade, nos períodos de avaliação de aprendizagem, programadas no
+calendário escolar;
+\item manter as instalações com condições de proporcionar ao ESTAGIÁRIO atividades de
+aprendizagem social, profissional e cultural;
+\item respeitar o limite máximo legal de 10 estagiários por SUPERVISOR;
+\item disponibilizar ao ESTAGIÁRIO os equipamentos de segurança que se fizerem necessários e
+exigir o seu uso durante o desempenho das atividades do estágio;
+\item não expor o ESTAGIÁRIO a riscos ambientais insalubres ou perigosos, sem o uso dos EPIs
+e EPCs obrigatórios, dentro dos limites de tolerância;
+\item informar ao ESTAGIÁRIO todas as normas de Segurança do Trabalho previstas para seu
+estágio;
+\item entregar quando do desligamento do ESTAGIÁRIO, termo de realização do estágio, com
+indicação resumida das atividades desenvolvidas, dos períodos e da avaliação de desempenho.
+\end{incisos}
+
+\clausula{6}{DAS OBRIGAÇÕES E RESPONSABILIDADES DA UFAPE}
+A UFAPE se compromete a colaborar com a CONCEDENTE e com o ESTAGIÁRIO para que a realização
+do estágio atinja os seus objetivos acadêmicos e ocorra em observância aos dispositivos legais
+e regulamentares pertinentes, devendo para tanto:
+\begin{incisos}
+\item avaliar as instalações do local em que será realizado o estágio e sua adequação à
+formação cultural e profissional do ESTAGIÁRIO;
+\item zelar pelo cumprimento deste termo de compromisso, reorientando o ESTAGIÁRIO para outro
+local em caso de descumprimento de suas normas;
+\item comunicar à CONCEDENTE o início do período letivo e as datas de realização de avaliações
+escolares ou acadêmicas;
+\item comunicar à CONCEDENTE o desligamento do ESTAGIÁRIO da UFAPE.
+\end{incisos}
+
+\clausula{7}{DAS OBRIGAÇÕES E RESPONSABILIDADES DO ESTAGIÁRIO}
+O ESTAGIÁRIO deverá:
+\begin{incisos}
+\item apresentar-se ao professor orientador e cumprir as normas estabelecidas para avaliação
+do Estágio, conforme o projeto pedagógico do curso;
+\item elaborar o relatório final circunstanciado, sobre o estágio; entregá-lo à empresa
+concedente para o visto do seu supervisor e, posteriormente, para o orientador, que o
+encaminhará à Coordenadoria de Estágios.
+\item responsabilizar-se pelas perdas e danos, que porventura sejam causados à CONCEDENTE e/ou
+a terceiros, quando agir de forma contrária às normas regulamentadoras do Estágio;
+\end{incisos}
+
+\clausula{8}{DO(A) ORIENTADOR(A) DO ESTÁGIO (UFAPE)}
+A UFAPE designa o(a) Professor(a) \campo[5cm]{\FOrientador}, para atuar como orientador(a) do
+ESTÁGIO, a quem compete, entre outras atribuições, zelar pelo cumprimento deste Termo de
+Compromisso e pela observância das normas legais pertinentes.
+
+\clausula{9}{DO(A) SUPERVISOR(A) DO ESTÁGIO (CONCEDENTE)}
+A CONCEDENTE designa o(a) Sr.(a) \campo[5cm]{\FSupervisor}, que ocupa o cargo de
+\campo[3cm]{\FSupervisorCargo}, para ser o(a) supervisor(a) do estágio, a quem compete, entre
+outras atribuições, zelar pelo cumprimento deste Termo de Compromisso e pela observância das
+normas legais pertinentes.
+
+\clausula{10}{DO SEGURO CONTRA ACIDENTES PESSOAIS}
+O(A) ESTAGIÁRIO(A) encontra-se assegurado contra acidentes pessoais, através da
+\textbf{APÓLICE n\textordmasculine{}} \campo[3cm]{\FApolice}, da \campo[4cm]{\FSeguradora},
+tendo como ESTIPULANTE a INSTITUIÇÃO DE ENSINO, nas condições e valores fixados na referida
+APÓLICE, compatíveis com os valores de mercado.
+
+\clausula{11}{DO VÍNCULO EMPREGATÍCIO}
+O estágio não gera vínculo empregatício de qualquer natureza, independentemente da concessão
+de benefícios relacionados a transporte, alimentação e saúde, ressalvado o disposto sobre a
+matéria na legislação previdenciária e no Art. 15 da Lei 11.788/08.
+
+\clausula{12}{DA EXTINÇÃO DO ESTÁGIO}
+O estágio será extinto;
+\begin{incisos}
+\item por iniciativa de quaisquer das partes, mediante comunicação por escrito feita com
+antecedência mínima de cinco (05) dias, respeitando-se o período de recesso;
+\item na hipótese do ESTAGIÁRIO ser desvinculado da UFAPE.
+\end{incisos}
+
+E por estarem de acordo, firmam as partes o presente Termo de Compromisso.
+
+\par\vspace{3mm}
+\noindent\hfill\FCidade, \campo[1.2cm]{\FDia}\ de \campo[2.5cm]{\FMes}\ de \campo[1.5cm]{\FAno}.\par
+\begin{minipage}{\textwidth}
+\pdfbookmark[1]{Assinaturas}{assinaturas}
+\gap{data-assinaturas}{20}
+\fileiraassinatura{ORIENTADOR(A) -- UFAPE}%
+{(assinatura e carimbo ou assinatura eletrônica)}%
+{SUPERVISOR(A)}{(assinatura e carimbo ou assinatura eletrônica)}
+\gap{assinaturas}{20}
+\fileiraassinatura{INSTITUIÇÃO DE ENSINO -- UFAPE}{(assinatura e carimbo)}%
+{CONCEDENTE}{(assinatura e carimbo ou assinatura eletrônica)}
+\gap{assinaturas-estagiario}{20}
+\noindent\makebox[\textwidth][c]{\assina{ESTAGIÁRIO(A)}{}}
+\end{minipage}
+
+\end{document}
