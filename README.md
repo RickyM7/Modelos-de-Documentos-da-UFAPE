@@ -58,9 +58,19 @@ frequência, sai em branco); campo preenchido sai com o texto digitado.
 | Ficha de Frequência de Estágio — tabela de frequência mensal, tipo de estágio (obrigatório/não obrigatório), quantidade de linhas configurável e assinatura por imagem ou texto do estagiário e do supervisor | [`docs-latex/outros-documentos/modelo-ficha-de-frequencia-de-estagio-ufape/`](docs-latex/outros-documentos/modelo-ficha-de-frequencia-de-estagio-ufape/) |
 | Termo de Compromisso de Estágio Obrigatório (Bacharelado) — dados da concedente, do estagiário, da instituição de ensino e cláusulas do estágio, com campos de assinatura | [`docs-latex/outros-documentos/modelo-termo-compromisso-estagio-ufape/`](docs-latex/outros-documentos/modelo-termo-compromisso-estagio-ufape/) |
 
-Os três primeiros formulários devem sair com uma página. A ficha de frequência e o
-termo de compromisso de estágio podem passar de uma página (a tabela da ficha continua
-na página seguinte; o termo de compromisso sai com 3 páginas). Confira com `pdfinfo main.pdf`.
+### Formulários de monitoria
+
+Também usam o bloco `\newcommand{\F...}` no topo do `main.tex`. Campo vazio sai como
+linha para preencher; `X` marca a opção (bolsista/voluntário, renovação).
+
+| Formulário | Pasta |
+|---|---|
+| Termo de Compromisso para Exercício da Monitoria — identificação do discente, dados bancários, modalidade (bolsista/voluntário), renovação, vigência e cláusulas | [`docs-latex/outros-documentos/modelo-termo-compromisso-monitoria-ufape/`](docs-latex/outros-documentos/modelo-termo-compromisso-monitoria-ufape/) |
+
+Todos os formulários acima devem sair com uma página, exceto a ficha de frequência e o
+termo de compromisso de estágio, que podem passar de uma página (a tabela da ficha
+continua na página seguinte; o termo de compromisso sai com 3 páginas). Confira com
+`pdfinfo main.pdf`.
 
 ---
 
@@ -113,7 +123,8 @@ docs-latex/
   modelo-relatorio-pesquisa-ufape/   main.tex, ufape.cls, textuais/, pos-textuais/, figuras/
   outros-documentos/         um formulário por pasta, cada um com main.tex e figuras/
                              (inclui os formulários de estágio: carta de aceite,
-                             ficha de frequência e termo de compromisso)
+                             ficha de frequência e termo de compromisso; e o termo
+                             de compromisso de monitoria)
 ```
 
 ---

@@ -1,0 +1,184 @@
+% Termo de Compromisso para Exercício da Monitoria - UFAPE
+% Campo vazio sai como linha para preencher; campo preenchido sai com o texto digitado.
+% Edite apenas o bloco de dados abaixo.
+\documentclass[11pt,a4paper]{article}
+
+% BLOCO DE DADOS
+% 1. Identificação do(a) discente monitor(a)
+% Nome completo, ex.: Maria da Silva
+\newcommand{\FNome}{}
+% CPF, ex.: 000.000.000-00
+\newcommand{\FCPF}{}
+% E-mail institucional, ex.: nome@ufape.edu.br
+\newcommand{\FEmail}{}
+% Telefone, ex.: (87) 9 9999-9999
+\newcommand{\FTelefone}{}
+% Curso, ex.: Bacharelado em Ciência da Computação
+\newcommand{\FCurso}{}
+% Período da monitoria, ex.: 2026.2. Também aparece no título; vazio omite o período.
+\newcommand{\FPeriodo}{}
+% Componente curricular, ex.: Segurança da Informação
+\newcommand{\FComponente}{}
+
+% 2. Dados bancários
+% Banco, ex.: Banco do Brasil
+\newcommand{\FBanco}{}
+% Agência, ex.: 0001
+\newcommand{\FAgencia}{}
+% Conta corrente, ex.: 00000000-0
+\newcommand{\FConta}{}
+% Operação (caso haja), ex.: 001
+\newcommand{\FOperacao}{}
+
+% 3. Modalidade e renovação
+% X marca a opção; {} deixa em branco.
+% Bolsista
+\newcommand{\FBolsista}{}
+% Voluntário
+\newcommand{\FVoluntario}{}
+% Renovação sim
+\newcommand{\FRenovacaoSim}{}
+% Renovação não
+\newcommand{\FRenovacaoNao}{}
+
+% 4. Vigência
+% Data de início, ex.: 01/03/2026
+\newcommand{\FDataInicio}{}
+% Data de término, ex.: 31/12/2026
+\newcommand{\FDataTermino}{}
+
+% Local e data
+% Cidade, ex.: Garanhuns
+\newcommand{\FCidade}{Garanhuns}
+% Dia, ex.: 10
+\newcommand{\FDia}{}
+% Mês, por extenso, ex.: março
+\newcommand{\FMes}{}
+% Ano, ex.: 2026
+\newcommand{\FAno}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[a4paper,left=2cm,right=2cm,top=1.2cm,bottom=1.2cm]{geometry}
+\usepackage[bookmarksnumbered=true,psdextra,pdfencoding=auto]{hyperref}
+\hypersetup{hidelinks}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\hyphenpenalty=10000 \exhyphenpenalty=10000
+
+\newcommand{\gap}[2]{\vspace{#2mm}}
+
+% Campo do texto: linha em branco quando vazio, texto digitado quando preenchido.
+% O argumento opcional é a largura da linha.
+\newcommand{\campo}[2][2.5cm]{%
+  \ifdefempty{#2}{\rule{#1}{0.4pt}}{#2}}
+
+% Campo no fim da linha ou da célula: quando vazio, a linha ocupa o resto da linha
+\newcommand{\campofim}[1]{%
+  \ifdefempty{#1}{\leaders\hrule height 0.4pt depth 0pt\hskip 1cm plus 1fill\relax}{#1}}
+
+% Marca de opção: ( X ) quando preenchida, (   ) quando vazia
+\newcommand{\marcacao}[1]{(\,\ifdefempty{#1}{\hspace{0.45em}}{X}\,)}
+
+% Item com numeral romano: bloco recuado, com o texto logo após o travessão,
+% como no modelo original (o recuo vale também para as linhas quebradas).
+\newcommand{\itemroman}[2]{%
+  \par\begingroup\leftskip=0.5cm\noindent #1-- #2\par\endgroup\vspace{0.6mm}}
+
+% Linha de assinatura com legenda
+\newcommand{\assinatura}[1]{%
+  \begin{minipage}[t]{7cm}\centering
+    \rule{\linewidth}{0.4pt}\\[1mm]
+    \textbf{#1}
+  \end{minipage}}
+
+\begin{document}
+\fontsize{10.5}{12.2}\selectfont
+
+\pdfbookmark[1]{Termo de Compromisso para Exercício da Monitoria}{termo}
+\noindent\makebox[\textwidth][c]{\includegraphics[height=2.0cm]{figuras/brasao-ufape.pdf}}
+
+\gap{logo-cabecalho}{1}
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{\textwidth}\centering\bfseries\fontsize{11}{12.6}\selectfont
+    UNIVERSIDADE FEDERAL DO AGRESTE DE PERNAMBUCO\\
+    PRÓ-REITORIA DE ENSINO E GRADUAÇÃO\\
+    DEPARTAMENTO DE PRÁTICAS DE FORMAÇÃO INICIAL E CONTINUADA\\
+    COORDENADORIA DE PROGRAMAS ACADÊMICOS
+  \end{minipage}}
+
+\gap{cabecalho-titulo}{3}
+\noindent\makebox[\textwidth][c]{%
+  \begin{minipage}{\textwidth}\centering\bfseries\fontsize{12}{15}\selectfont
+    TERMO DE COMPROMISSO PARA EXERCÍCIO DA MONITORIA%
+    \ifdefempty{\FPeriodo}{}{ - \FPeriodo}
+  \end{minipage}}
+
+\gap{titulo-tabela}{2}
+
+{\renewcommand{\arraystretch}{1.55}%
+\pdfbookmark[1]{Dados do discente monitor}{dados}%
+\noindent\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{6.4cm}|}
+\hline
+\textbf{NOME:} \campofim{\FNome} & \textbf{CPF:} \campofim{\FCPF}\\\hline
+\textbf{E-MAIL:} \campofim{\FEmail} & \textbf{TELEFONE:} \campofim{\FTelefone}\\\hline
+\textbf{CURSO:} \campofim{\FCurso} & \textbf{PERÍODO:} \campofim{\FPeriodo}\\\hline
+\multicolumn{2}{|p{\dimexpr\textwidth-2\tabcolsep-2\arrayrulewidth\relax}|}{\textbf{COMPONENTE CURRICULAR:} \campofim{\FComponente}}\\\hline
+\textbf{BANCO:} \campofim{\FBanco} & \textbf{AGÊNCIA:} \campofim{\FAgencia}\\\hline
+\textbf{CONTA CORRENTE:} \campofim{\FConta} & \textbf{OP (caso haja):} \campofim{\FOperacao}\\\hline
+\marcacao{\FBolsista}\ BOLSISTA\hspace{0.8cm}\marcacao{\FVoluntario}\ VOLUNTÁRIO &
+\textbf{RENOVAÇÃO:} \marcacao{\FRenovacaoSim}\ SIM\hspace{0.5cm}\marcacao{\FRenovacaoNao}\ NÃO\\\hline
+\textbf{DATA DE INÍCIO:} \campofim{\FDataInicio} & \textbf{DATA DE TÉRMINO:} \campofim{\FDataTermino}\\\hline
+\end{tabularx}\par}
+
+\gap{tabela-texto}{4}
+
+A Universidade Federal do Agreste de Pernambuco -- UFAPE, por meio da Pró-Reitoria de Ensino e Graduação, e o DISCENTE MONITOR acima qualificado, têm entre si, justo e avençado o presente TERMO DE COMPROMISSO, que se regerá pelas condições abaixo aduzidas, com base no Edital interno n\textordmasculine{} 014/2025 do Programa de Monitoria e na Resolução CONSEPE n\textordmasculine{} 010/2025, de 18 de agosto, da UFAPE.
+
+\gap{texto-clausula1}{2}
+
+\pdfbookmark[1]{1 - Cabe ao discente monitor}{clausula1}%
+\noindent\textbf{1.} Cabe ao DISCENTE MONITOR (bolsista ou voluntário):
+\itemroman{I}{planejar, juntamente com o docente orientador, ações de ensino e aprendizagem;}
+\itemroman{II}{realizar as atividades estabelecidas no plano de trabalho;}
+\itemroman{III}{cumprir a carga horária semanal de 12 (doze) horas;}
+\itemroman{IV}{orientar e acompanhar, juntamente com o docente, o desenvolvimento acadêmico dos discentes monitorados;}
+\itemroman{V}{elaborar e enviar o relatório de atividades ao docente para fins de análise;}
+\itemroman{VI}{enviar para a CPAC o relatório de atividades assinado pelo discente e orientador; e}
+\itemroman{VII}{apresentar os resultados parciais e/ou finais das atividades em eventos acadêmicos, com prioridade para o Congresso de Iniciação à Docência da UFAPE.}
+
+\gap{clausula1-relatorio}{3}
+Ao final de sua participação no programa de Monitoria, o DISCENTE MONITOR irá elaborar um relatório de atividades, enviando-o ao Orientador. O relatório, devidamente preenchido e assinado por ambos, deverá ser enviado à Coordenadoria de Programas Acadêmicos, via e-mail institucional: \href{mailto:programasacademicos.preg@ufape.edu.br}{programasacademicos.preg@ufape.edu.br}, dentro do prazo de 60 dias após a finalização da participação junto ao programa, sendo esta condição obrigatória para o recebimento do certificado.
+
+\gap{relatorio-clausula2}{3}
+\pdfbookmark[1]{2 - Desligamento do programa}{clausula2}%
+\textbf{2.} O DISCENTE MONITOR poderá ser desligado do programa pelo não cumprimento das obrigações previstas no parágrafo 1\textordmasculine{} do Art. 9\textordmasculine{} da Resolução n\textordmasculine{} 010/2025.
+
+\gap{clausula2-clausula3}{2}
+\pdfbookmark[1]{3 - Vínculo empregatício}{clausula3}%
+\textbf{3.} Este TERMO não cria, nem envolve qualquer espécie de relação de emprego entre o DISCENTE MONITOR e a UFAPE;
+
+\gap{clausula3-clausula4}{2}
+\pdfbookmark[1]{4 - Aceite das condições}{clausula4}%
+\textbf{4.} O DISCENTE MONITOR declara que aceita as condições previstas neste TERMO, comprometendo-se a cumpri-las.
+
+\gap{clausula4-fecho}{2}
+E por estarem de acordo, lido e achado conforme, as partes abaixo nomeadas assinam o presente instrumento.
+
+\gap{fecho-data}{6}
+\pdfbookmark[1]{Assinaturas}{assinaturas}%
+\noindent\makebox[\textwidth][r]{\FCidade, \campo[1.2cm]{\FDia}\ de \campo[2.5cm]{\FMes}\ de \campo[1.5cm]{\FAno}.}
+
+% Espaço para a assinatura eletrônica (GOV.BR) caber acima da linha
+\gap{data-assinaturas}{24}
+\noindent\assinatura{Prof.(a) Orientador(a)}\hfill\assinatura{Discente Monitor(a)}
+
+\end{document}
